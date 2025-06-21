@@ -9,8 +9,8 @@ import Footer from "@/components/footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Purpleware - пурпурная посуда",
-  description: "Your source for CS2, Valorant, and Roblox cheats..",
+  title: "Purpleware - Premium Gaming Tools",
+  description: "Your source for CS2, Valorant, and Roblox cheats.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -34,11 +34,11 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="https://i.ibb.co/ynkzdpwk/favicon-16x16.png" type="image/png" />
       </head>
-      <body className={`${inter.className} bg-[#050212] min-h-screen`}>
+      <body className={`${inter.className} bg-black min-h-screen antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
           <div className="flex flex-col min-h-screen">
             <Navbar />
-            <main className="flex-1 mx-auto px-6 py-12 max-w-7xl w-full">{children}</main>
+            <main className="flex-1 container mx-auto py-8">{children}</main>
             <Footer />
           </div>
         </ThemeProvider>
