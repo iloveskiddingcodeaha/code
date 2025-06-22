@@ -16,7 +16,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-zinc-400 text-sm leading-relaxed">
-              Premium gaming tools and enhancements. Join our community and elevate your gaming experience.
+              Skidding and stealing code since 24
             </p>
           </div>
 
@@ -40,9 +40,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/roblox-cheats" className="text-zinc-400 hover:text-purple-400 transition-colors text-sm">
-                  Roblox Cheats
-                </Link>
               </li>
             </ul>
           </div>

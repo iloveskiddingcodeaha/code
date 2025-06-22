@@ -29,7 +29,7 @@ export default function Home() {
     EN: {
       welcomeTag: "Website was recoded, sorry if it looks different - @hhushed",
       heroTitle: "Welcome to Purpleware",
-      heroSubtitle: "Get an unfair advantage with our premium gaming tools.",
+      heroSubtitle: "Skidding code since 2024.",
       cs2Button: "CS2 Cheats",
       discordButton: "Join Discord",
       gamesTitle: "Cheats For All Your Main Games",
@@ -108,12 +108,6 @@ export default function Home() {
       description: t.valorantDescription,
       href: "/valorant-cheats",
       icon: <span className="text-white font-bold text-sm">VAL</span>,
-    },
-    {
-      name: "Roblox",
-      description: t.robloxDescription,
-      href: "/roblox-cheats",
-      icon: <span className="text-white font-bold text-sm">RBX</span>,
     },
   ]
 

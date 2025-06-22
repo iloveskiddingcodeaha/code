@@ -117,7 +117,7 @@ export default function CS2Cheats() {
       ],
       popular: true,
       downloadUrl:
-        "https://www.mediafire.com/file/mjgepo3vkr9xpu5/Aimware+-+Purpleware.zip/file",
+        "https://gofile.io/d/eMOVZv",
       password: language === "RU" ? "Ничего!" : "Nothing!",
     },
     {

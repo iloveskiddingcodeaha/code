@@ -9,8 +9,8 @@ import Footer from "@/components/footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Purpleware - Premium Gaming Tools",
-  description: "Your source for CS2, Valorant, and Roblox cheats.",
+  title: "Purpleware - Cracked cheats",
+  description: "Use puppleware to cheat against losers.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },

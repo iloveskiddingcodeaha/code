@@ -31,7 +31,6 @@ export default function Navbar() {
       cs2Cheats: "CS2",
       csgoeCheats: "CSGO",
       valorantCheats: "Valorant",
-      robloxCheats: "Roblox",
       discord: "Discord",
       contact: "Contact",
     },
@@ -40,7 +39,6 @@ export default function Navbar() {
       cs2Cheats: "CS2",
       csgoeCheats: "CSGO",
       valorantCheats: "Valorant",
-      robloxCheats: "Roblox",
       discord: "Discord",
       contact: "Контакты",
     },
@@ -52,7 +50,6 @@ export default function Navbar() {
     { href: "/cs2", label: t.cs2Cheats, icon: "CS2" },
     { href: "/csgo-cheats", label: t.csgoeCheats, icon: "GO" },
     { href: "/valorant-cheats", label: t.valorantCheats, icon: "VAL" },
-    { href: "/roblox-cheats", label: t.robloxCheats, icon: "RBX" },
   ]
 
   return (
