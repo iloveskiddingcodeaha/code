@@ -29,7 +29,7 @@ export default function Home() {
     EN: {
       welcomeTag: "Website was recoded, sorry if it looks different - @hhushed",
       heroTitle: "Welcome to Purpleware",
-      heroSubtitle: "Skidding code since 2024.",
+      heroSubtitle: "Get an unfair advantage with our premium gaming tools.",
       cs2Button: "CS2 Cheats",
       discordButton: "Join Discord",
       gamesTitle: "Cheats For All Your Main Games",
@@ -109,6 +109,12 @@ export default function Home() {
       href: "/valorant-cheats",
       icon: <span className="text-white font-bold text-sm">VAL</span>,
     },
+    {
+      name: "Roblox",
+      description: t.robloxDescription,
+      href: "/roblox-cheats",
+      icon: <span className="text-white font-bold text-sm">RBX</span>,
+    },
   ]
 
   return (
@@ -138,12 +144,12 @@ export default function Home() {
 
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="/cs2">
-                <Button className="bg-zinc-900 hover:bg-zinc-800 text-purple-300 hover:text-white px-6 py-2.5 rounded-md border border-purple-700/50 shadow-lg shadow-purple-800/20 hover:shadow-purple-700/30 transition-all">
+                <Button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2.5 rounded-md border border-purple-500/50 shadow-lg shadow-purple-600/20 hover:shadow-purple-600/30 transition-all">
                   {t.cs2Button}
                 </Button>
               </Link>
               <Link href="/discord">
-                <Button className="bg-zinc-900/50 hover:bg-zinc-800 text-purple-400 hover:text-white border border-purple-800/50 px-6 py-2.5 rounded-md shadow-lg shadow-purple-900/20 hover:shadow-purple-800/30 transition-all">
+                <Button className="bg-black hover:bg-purple-900/30 text-purple-300 hover:text-white border border-purple-600/50 px-6 py-2.5 rounded-md shadow-lg shadow-purple-600/10 hover:shadow-purple-600/20 transition-all">
                   {t.discordButton}
                 </Button>
               </Link>
@@ -219,7 +225,7 @@ export default function Home() {
               <h2 className="text-2xl font-bold mb-3 text-white">{t.ctaTitle}</h2>
               <p className="text-purple-200 mb-6">{t.ctaSubtitle}</p>
               <Link href="/discord">
-                <Button className="bg-zinc-800 text-purple-300 hover:bg-zinc-700 hover:text-white border border-purple-800/50 px-6 py-2.5 rounded-md font-medium shadow-lg hover:shadow-xl transition-all">
+                <Button className="bg-white text-black hover:bg-purple-100 px-6 py-2.5 rounded-md font-medium shadow-lg hover:shadow-xl transition-all">
                   {t.joinDiscord}
                 </Button>
               </Link>

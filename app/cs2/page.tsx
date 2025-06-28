@@ -117,7 +117,7 @@ export default function CS2Cheats() {
       ],
       popular: true,
       downloadUrl:
-        "https://gofile.io/d/eMOVZv",
+        "https://github.com/iloveskiddingcodeaha/Purpleware/raw/refs/heads/main/AIMWARE%20UPDATED%20-%20PW.zip",
       password: language === "RU" ? "Ничего!" : "Nothing!",
     },
     {
@@ -349,9 +349,9 @@ export default function CS2Cheats() {
                 <CardFooter>
                   <Link href={cheat.downloadUrl} className="w-full" target="_blank" rel="noopener noreferrer">
                     <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                      <Button className="w-full bg-zinc-900 hover:bg-zinc-800 border border-purple-800/50 text-purple-300 hover:text-white relative overflow-hidden group transition-all duration-300">
+                      <Button className="w-full bg-purple-800 hover:bg-purple-700 relative overflow-hidden group">
                         <motion.span
-                          className="absolute inset-0 bg-gradient-to-r from-zinc-700/0 via-purple-800/20 to-zinc-700/0"
+                          className="absolute inset-0 bg-gradient-to-r from-purple-700/0 via-purple-700/30 to-purple-700/0"
                           animate={{
                             x: ["-100%", "200%"],
                           }}
@@ -455,9 +455,9 @@ export default function CS2Cheats() {
                 <CardFooter>
                   <Link href={cheat.downloadUrl} className="w-full" target="_blank" rel="noopener noreferrer">
                     <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                      <Button className="w-full bg-zinc-900 hover:bg-zinc-800 border border-purple-800/50 text-purple-300 hover:text-white relative overflow-hidden group transition-all duration-300">
+                      <Button className="w-full bg-purple-800 hover:bg-purple-700 relative overflow-hidden group">
                         <motion.span
-                          className="absolute inset-0 bg-gradient-to-r from-zinc-700/0 via-purple-800/20 to-zinc-700/0"
+                          className="absolute inset-0 bg-gradient-to-r from-purple-700/0 via-purple-700/30 to-purple-700/0"
                           animate={{
                             x: ["-100%", "200%"],
                           }}
