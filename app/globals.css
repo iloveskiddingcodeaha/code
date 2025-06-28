@@ -177,3 +177,23 @@ h6 {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+/* In globals.css or a relevant CSS module */
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite linear;
+  animation-play-state: paused; /* Pause by default */
+}
+
+.group:hover .animate-shimmer {
+  animation-play-state: running; /* Play on group hover */
+}

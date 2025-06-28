@@ -40,9 +40,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/roblox-cheats" className="text-zinc-400 hover:text-purple-400 transition-colors text-sm">
-                  Roblox Cheats
-                </Link>
               </li>
             </ul>
           </div>

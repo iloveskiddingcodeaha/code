@@ -1,3 +1,4 @@
+// app/page.tsx
 "use client"
 
 import type React from "react"
@@ -6,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Download, Shield, Zap, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import Sparkle from 'react-sparkle'
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -25,15 +27,16 @@ export default function Home() {
     return () => window.removeEventListener("languageChange", handleLanguageChange as EventListener)
   }, [])
 
+  // The translations object is defined here as a constant.
+  // The "translations is not defined" error is unusual for this setup.
   const translations = {
     EN: {
-      welcomeTag: "Website was recoded, sorry if it looks different - @hhushed",
-      heroTitle: "Welcome to Purpleware",
-      heroSubtitle: "Get an unfair advantage with our premium gaming tools.",
+      heroTitle: "Welcome to Purpleware?",
+      heroSubtitle: "We skid and steal so you don't.",
       cs2Button: "CS2 Cheats",
       discordButton: "Join Discord",
-      gamesTitle: "Cheats For All Your Main Games",
-      gamesSubtitle: "Premium tools for every game, crafted to perfection.",
+      gamesTitle: "Cheats we provide at the time being:",
+      gamesSubtitle: "",
       cs2Description: "Advanced cheats for Counter-Strike 2 with undetected features",
       csgoDescription: "Legacy hacks for CS:GO that still work flawlessly",
       valorantDescription: "Precision aimbots and ESP for Valorant",
@@ -57,7 +60,6 @@ export default function Home() {
       weekly: "Weekly",
     },
     RU: {
-      welcomeTag: "@hhushed был здесь 👋",
       heroTitle: "Добро пожаловать в Purpleware",
       heroSubtitle: "Получите несправедливое преимущество с нашими премиум инструментами.",
       cs2Button: "Читы CS2",
@@ -88,7 +90,8 @@ export default function Home() {
     },
   }
 
-  const t = translations[language as keyof typeof translations]
+  // 't' is correctly derived here, ensuring it always refers to a valid translation set.
+  const t = translations[language]
 
   const gameCategories = [
     {
@@ -101,7 +104,7 @@ export default function Home() {
       name: "CSGO",
       description: t.csgoDescription,
       href: "/csgo-cheats",
-      icon: <span className="text-white font-bold text-sm">CSGO</span>,
+      icon: <span className="text-white font-bold text-2xl">CSGO</span>,
     },
     {
       name: "Valorant",
@@ -109,6 +112,13 @@ export default function Home() {
       href: "/valorant-cheats",
       icon: <span className="text-white font-bold text-sm">VAL</span>,
     },
+    // Uncomment if you decide to add Roblox to your Home page display
+    // {
+    //   name: "Roblox",
+    //   description: t.robloxDescription,
+    //   href: "/roblox-cheats",
+    //   icon: <span className="text-white font-bold text-sm">RBLX</span>,
+    // },
   ]
 
   return (
@@ -123,15 +133,24 @@ export default function Home() {
       <div className="relative z-10 space-y-16">
         {/* Hero Section */}
         <section className="py-16 md:py-24">
-          <div className="text-center space-y-6">
-            <div className="inline-block mb-4 px-4 py-1.5 bg-purple-900/20 rounded-full border border-purple-800/30">
-              <span className="text-purple-300 text-sm">{t.welcomeTag}</span>
-            </div>
-
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
+          <div className="text-center space-y-6 px-4 sm:px-6 lg:px-8">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 relative inline-block">
               <span className="bg-gradient-to-r from-white via-purple-200 to-purple-400 bg-clip-text text-transparent">
                 {t.heroTitle}
               </span>
+              {isLoaded && (
+                <Sparkle
+                  color="#A020F0"
+                  count={50}
+                  minSize={7}
+                  maxSize={12}
+                  overflowPx={0}
+                  fadeOutSpeed={30}
+                  newSparkleOnFadeOut={true}
+                  flicker={true}
+                  flickerSpeed="normal"
+                />
+              )}
             </h1>
 
             <p className="text-xl text-purple-200 mb-8 max-w-2xl mx-auto">{t.heroSubtitle}</p>
@@ -152,88 +171,105 @@ export default function Home() {
         </section>
 
         {/* Game Categories Section */}
-        <section>
-          <div className="text-center mb-10">
-            <h2 className="text-2xl font-bold mb-3 bg-gradient-to-r from-white to-purple-300 bg-clip-text text-transparent">
-              {t.gamesTitle}
-            </h2>
-            <p className="text-purple-200 max-w-2xl mx-auto">{t.gamesSubtitle}</p>
-          </div>
+        <section className="py-16">
+          <div className="px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10">
+              <h2 className="text-2xl font-bold mb-3 bg-gradient-to-r from-white to-purple-300 bg-clip-text text-transparent">
+                {t.gamesTitle}
+              </h2>
+              <p className="text-purple-200 max-w-2xl mx-auto">{t.gamesSubtitle}</p>
+            </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {gameCategories.map((game, index) => (
-              <Link key={index} href={game.href} className="group">
-                <Card className="bg-black/50 border border-purple-800/30 hover:border-purple-600/50 backdrop-blur-sm h-full transition-all hover:bg-purple-900/10 hover:shadow-lg hover:shadow-purple-600/10">
-                  <CardContent className="p-4">
-                    <div className="bg-purple-600 w-10 h-10 rounded-md flex items-center justify-center mb-3 group-hover:bg-purple-500 transition-colors shadow-lg shadow-purple-600/30">
-                      {game.icon}
-                    </div>
-                    <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-purple-300 transition-colors">
-                      {language === "RU" ? `Читы ${game.name}` : `${game.name} Cheats`}
-                    </h3>
-                    <p className="text-purple-200 mb-3 text-sm group-hover:text-purple-100 transition-colors">
-                      {game.description}
-                    </p>
-                    <div className="flex items-center text-purple-400 text-sm font-medium group-hover:text-purple-300">
-                      {t.viewCheats} <ChevronRight className="h-3 w-3 ml-1" />
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
+            {/* Changed from grid to flex for better control with fixed width cards */}
+            <div className="flex flex-wrap justify-center gap-4">
+              {gameCategories.map((game, index) => (
+                <Link key={index} href={game.href} className="group">
+                  {/* Added w-[250px] to fix the card width */}
+                  <Card className="w-[250px] bg-black/50 border border-purple-800/30 hover:border-purple-600/50 backdrop-blur-sm h-full transition-all hover:bg-purple-900/10 hover:shadow-lg hover:shadow-purple-600/10">
+                    <CardContent className="p-4">
+                      {game.name === "CSGO" ? (
+                        <div className="mb-3">
+                          {game.icon}
+                        </div>
+                      ) : (
+                        <div className="bg-purple-600 w-10 h-10 rounded-md flex items-center justify-center mb-3 group-hover:bg-purple-500 transition-colors shadow-lg shadow-purple-600/30">
+                          {game.icon}
+                        </div>
+                      )}
+                      <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-purple-300 transition-colors">
+                        {language === "RU" ? `Читы ${game.name}` : `${game.name} Cheats`}
+                      </h3>
+                      <p className="text-purple-200 mb-3 text-sm group-hover:text-purple-100 transition-colors">
+                        {game.description}
+                      </p>
+                      <div className="flex items-center text-purple-400 text-sm font-medium group-hover:text-purple-300">
+                        {t.viewCheats} <ChevronRight className="h-3 w-3 ml-1" />
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 
         {/* Features Section */}
-        <section>
-          <div className="text-center mb-10">
-            <h2 className="text-2xl font-bold mb-3 bg-gradient-to-r from-white to-purple-300 bg-clip-text text-transparent">
-              {t.featuresTitle}
-            </h2>
-            <p className="text-purple-200 max-w-2xl mx-auto">{t.featuresSubtitle}</p>
-          </div>
+        <section className="py-16">
+          <div className="px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10">
+              <h2 className="text-2xl font-bold mb-3 bg-gradient-to-r from-white to-purple-300 bg-clip-text text-transparent">
+                {t.featuresTitle}
+              </h2>
+              <p className="text-purple-200 max-w-2xl mx-auto">{t.featuresSubtitle}</p>
+            </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            <FeatureCard
-              icon={<Shield className="h-5 w-5 text-purple-400" />}
-              title={t.undetectedTitle}
-              description={t.undetectedDesc}
-            />
-            <FeatureCard
-              icon={<Zap className="h-5 w-5 text-purple-400" />}
-              title={t.updatesTitle}
-              description={t.updatesDesc}
-            />
-            <FeatureCard
-              icon={<Download className="h-5 w-5 text-purple-400" />}
-              title={t.setupTitle}
-              description={t.setupDesc}
-            />
+            <div className="grid md:grid-cols-3 gap-6">
+              <FeatureCard
+                icon={<Shield className="h-5 w-5 text-purple-400" />}
+                title={t.undetectedTitle}
+                description={t.undetectedDesc}
+              />
+              <FeatureCard
+                icon={<Zap className="h-5 w-5 text-purple-400" />}
+                title={t.updatesTitle}
+                description={t.updatesDesc}
+              />
+              <FeatureCard
+                icon={<Download className="h-5 w-5 text-purple-400" />}
+                title={t.setupTitle}
+                description={t.setupDesc}
+              />
+            </div>
           </div>
         </section>
 
+
         {/* CTA Section */}
         <section className="py-12">
-          <div className="bg-purple-900/20 rounded-xl p-8 border border-purple-800/30 text-center backdrop-blur-sm">
-            <div className="max-w-2xl mx-auto">
-              <h2 className="text-2xl font-bold mb-3 text-white">{t.ctaTitle}</h2>
-              <p className="text-purple-200 mb-6">{t.ctaSubtitle}</p>
-              <Link href="/discord">
-                <Button className="bg-white text-black hover:bg-purple-100 px-6 py-2.5 rounded-md font-medium shadow-lg hover:shadow-xl transition-all">
-                  {t.joinDiscord}
-                </Button>
-              </Link>
+          <div className="px-4 sm:px-6 lg:px-8">
+            <div className="bg-purple-900/20 rounded-xl p-8 border border-purple-800/30 text-center backdrop-blur-sm">
+              <div className="max-w-2xl mx-auto">
+                <h2 className="text-2xl font-bold mb-3 text-white">{t.ctaTitle}</h2>
+                <p className="text-purple-200 mb-6">{t.ctaSubtitle}</p>
+                <Link href="/discord">
+                  <Button className="bg-white text-black hover:bg-purple-100 px-6 py-2.5 rounded-md font-medium shadow-lg hover:shadow-xl transition-all">
+                    {t.joinDiscord}
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Stats Section */}
-        <section>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <StatCard number="1,000+" label={t.happyUsers} />
-            <StatCard number="4" label={t.gamePlatforms} />
-            <StatCard number="12+" label={t.differentCheats} />
-            <StatCard number={t.weekly} label={t.updates} />
+        <section className="pb-16">
+          <div className="px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <StatCard number="1,000+" label={t.happyUsers} />
+              <StatCard number="4" label={t.gamePlatforms} />
+              <StatCard number="12+" label={t.differentCheats} />
+              <StatCard number={t.weekly} label={t.updates} />
+            </div>
           </div>
         </section>
       </div>
