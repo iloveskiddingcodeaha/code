@@ -28,7 +28,7 @@ export default function LoginGate({ children }: { children: React.ReactNode }) {
   return (
     <div className="login-gate">
       <div className="login-box">
-        <h2>Enter Access</h2>
+        <h2>You need a invitation..</h2>
         <input
           type="text"
           placeholder="Invitation Code"
