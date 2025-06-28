@@ -109,12 +109,6 @@ export default function Home() {
       href: "/valorant-cheats",
       icon: <span className="text-white font-bold text-sm">VAL</span>,
     },
-    {
-      name: "Roblox",
-      description: t.robloxDescription,
-      href: "/roblox-cheats",
-      icon: <span className="text-white font-bold text-sm">RBX</span>,
-    },
   ]
 
   return (

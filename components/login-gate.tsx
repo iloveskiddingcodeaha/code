@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import "./login-gate.css"; // Create this stylesheet next
 
-const VALID_INVITE = "purplekey"; // change to your code
+const VALID_INVITE = "kAYUnk32kjhAHJjaA"; // change to your code
 
 export default function LoginGate({ children }: { children: React.ReactNode }) {
   const [unlocked, setUnlocked] = useState(false);
