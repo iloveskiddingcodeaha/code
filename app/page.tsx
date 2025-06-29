@@ -9,6 +9,68 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import Sparkle from 'react-sparkle'
 
+// Move the translations object outside the Home component
+const translations = {
+  EN: {
+    heroTitle: "Welcome to Purpleware?",
+    heroSubtitle: "We skid and steal so you don't.",
+    cs2Button: "CS2 Cheats",
+    discordButton: "Join Discord",
+    gamesTitle: "Cheats we provide at the time being:",
+    gamesSubtitle: "",
+    cs2Description: "Advanced cheats for Counter-Strike 2 with undetected features",
+    csgoDescription: "Legacy hacks for CS:GO that still work flawlessly",
+    valorantDescription: "Precision aimbots and ESP for Valorant",
+    robloxDescription: "Powerful scripts and exploits for Roblox games",
+    viewCheats: "View Cheats",
+    featuresTitle: "Why Choose Purpleware",
+    featuresSubtitle: "We deliver quality, reliability, and performance.",
+    undetectedTitle: "Undetected",
+    undetectedDesc: "Our tools use advanced techniques to stay hidden from anti-cheat systems.",
+    updatesTitle: "Regular Updates",
+    updatesDesc: "Weekly updates to ensure compatibility with the latest game versions.",
+    setupTitle: "Easy Setup",
+    setupDesc: "Simple installation process with comprehensive support documentation.",
+    ctaTitle: "Ready to dominate?",
+    ctaSubtitle: "Join our community and access premium gaming tools.",
+    joinDiscord: "Join Discord",
+    happyUsers: "Happy Users",
+    gamePlatforms: "Game Platforms",
+    differentCheats: "Different Tools",
+    updates: "Updates",
+    weekly: "Weekly",
+  },
+  RU: {
+    heroTitle: "Добро пожаловать в Purpleware",
+    heroSubtitle: "Получите несправедливое преимущество с нашими премиум инструментами.",
+    cs2Button: "Читы CS2",
+    discordButton: "Присоединиться к Discord",
+    gamesTitle: "Читы для всех ваших любимых игр",
+    gamesSubtitle: "Премиум инструменты для каждой игры, созданные до совершенства.",
+    cs2Description: "Продвинутые читы для Counter-Strike 2 с необнаруживаемыми функциями",
+    csgoDescription: "Наследие хаков для CS:GO, которые все еще работают безупречно",
+    valorantDescription: "Точные аимботы и ESP для Valorant",
+    robloxDescription: "Мощные скрипты и эксплойты для игр Roblox",
+    viewCheats: "Посмотреть читы",
+    featuresTitle: "Почему выбирают Purpleware",
+    featuresSubtitle: "Мы обеспечиваем качество, надежность и производительность.",
+    undetectedTitle: "Необнаруживаемые",
+    undetectedDesc: "Наши инструменты используют передовые техники, чтобы оставаться скрытыми от анти-чит систем.",
+    updatesTitle: "Регулярные обновления",
+    updatesDesc: "Еженедельные обновления для обеспечения совместимости с последними версиями игр.",
+    setupTitle: "Простая установка",
+    setupDesc: "Простой процесс установки с полной документацией поддержки.",
+    ctaTitle: "Готовы доминировать?",
+    ctaSubtitle: "Присоединяйтесь к нашему сообществу и получите доступ к премиум игровым инструментам.",
+    joinDiscord: "Присоединиться к Discord",
+    happyUsers: "Довольных пользователей",
+    gamePlatforms: "Игровых платформ",
+    differentCheats: "Различных инструментов",
+    updates: "Обновления",
+    weekly: "Еженедельно",
+  },
+}
+
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false)
   const [language, setLanguage] = useState("EN")
@@ -27,70 +89,6 @@ export default function Home() {
     return () => window.removeEventListener("languageChange", handleLanguageChange as EventListener)
   }, [])
 
-  // The translations object is defined here as a constant.
-  // The "translations is not defined" error is unusual for this setup.
-  const translations = {
-    EN: {
-      heroTitle: "Welcome to Purpleware?",
-      heroSubtitle: "We skid and steal so you don't.",
-      cs2Button: "CS2 Cheats",
-      discordButton: "Join Discord",
-      gamesTitle: "Cheats we provide at the time being:",
-      gamesSubtitle: "",
-      cs2Description: "Advanced cheats for Counter-Strike 2 with undetected features",
-      csgoDescription: "Legacy hacks for CS:GO that still work flawlessly",
-      valorantDescription: "Precision aimbots and ESP for Valorant",
-      robloxDescription: "Powerful scripts and exploits for Roblox games",
-      viewCheats: "View Cheats",
-      featuresTitle: "Why Choose Purpleware",
-      featuresSubtitle: "We deliver quality, reliability, and performance.",
-      undetectedTitle: "Undetected",
-      undetectedDesc: "Our tools use advanced techniques to stay hidden from anti-cheat systems.",
-      updatesTitle: "Regular Updates",
-      updatesDesc: "Weekly updates to ensure compatibility with the latest game versions.",
-      setupTitle: "Easy Setup",
-      setupDesc: "Simple installation process with comprehensive support documentation.",
-      ctaTitle: "Ready to dominate?",
-      ctaSubtitle: "Join our community and access premium gaming tools.",
-      joinDiscord: "Join Discord",
-      happyUsers: "Happy Users",
-      gamePlatforms: "Game Platforms",
-      differentCheats: "Different Tools",
-      updates: "Updates",
-      weekly: "Weekly",
-    },
-    RU: {
-      heroTitle: "Добро пожаловать в Purpleware",
-      heroSubtitle: "Получите несправедливое преимущество с нашими премиум инструментами.",
-      cs2Button: "Читы CS2",
-      discordButton: "Присоединиться к Discord",
-      gamesTitle: "Читы для всех ваших любимых игр",
-      gamesSubtitle: "Премиум инструменты для каждой игры, созданные до совершенства.",
-      cs2Description: "Продвинутые читы для Counter-Strike 2 с необнаруживаемыми функциями",
-      csgoDescription: "Наследие хаков для CS:GO, которые все еще работают безупречно",
-      valorantDescription: "Точные аимботы и ESP для Valorant",
-      robloxDescription: "Мощные скрипты и эксплойты для игр Roblox",
-      viewCheats: "Посмотреть читы",
-      featuresTitle: "Почему выбирают Purpleware",
-      featuresSubtitle: "Мы обеспечиваем качество, надежность и производительность.",
-      undetectedTitle: "Необнаруживаемые",
-      undetectedDesc: "Наши инструменты используют передовые техники, чтобы оставаться скрытыми от анти-чит систем.",
-      updatesTitle: "Регулярные обновления",
-      updatesDesc: "Еженедельные обновления для обеспечения совместимости с последними версиями игр.",
-      setupTitle: "Простая установка",
-      setupDesc: "Простой процесс установки с полной документацией поддержки.",
-      ctaTitle: "Готовы доминировать?",
-      ctaSubtitle: "Присоединяйтесь к нашему сообществу и получите доступ к премиум игровым инструментам.",
-      joinDiscord: "Присоединиться к Discord",
-      happyUsers: "Довольных пользователей",
-      gamePlatforms: "Игровых платформ",
-      differentCheats: "Различных инструментов",
-      updates: "Обновления",
-      weekly: "Еженедельно",
-    },
-  }
-
-  // 't' is correctly derived here, ensuring it always refers to a valid translation set.
   const t = translations[language]
 
   const gameCategories = [
@@ -123,11 +121,12 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen">
-      {/* Purple Moon Background */}
+      {/* Purple Moon Background - MODIFIED to start further down */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-20 right-20 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-40 right-40 w-64 h-64 bg-purple-500/15 rounded-full blur-2xl"></div>
-        <div className="absolute top-32 right-32 w-32 h-32 bg-purple-400/20 rounded-full blur-xl"></div>
+        {/* Adjusted 'top' values to push the glow down */}
+        <div className="absolute top-40 right-20 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-60 right-40 w-64 h-64 bg-purple-500/15 rounded-full blur-2xl"></div>
+        <div className="absolute top-52 right-32 w-32 h-32 bg-purple-400/20 rounded-full blur-xl"></div>
       </div>
 
       <div className="relative z-10 space-y-16">
@@ -180,11 +179,9 @@ export default function Home() {
               <p className="text-purple-200 max-w-2xl mx-auto">{t.gamesSubtitle}</p>
             </div>
 
-            {/* Changed from grid to flex for better control with fixed width cards */}
             <div className="flex flex-wrap justify-center gap-4">
               {gameCategories.map((game, index) => (
                 <Link key={index} href={game.href} className="group">
-                  {/* Added w-[250px] to fix the card width */}
                   <Card className="w-[250px] bg-black/50 border border-purple-800/30 hover:border-purple-600/50 backdrop-blur-sm h-full transition-all hover:bg-purple-900/10 hover:shadow-lg hover:shadow-purple-600/10">
                     <CardContent className="p-4">
                       {game.name === "CSGO" ? (
@@ -215,7 +212,7 @@ export default function Home() {
 
         {/* Features Section */}
         <section className="py-16">
-          <div className="px-4 sm:px-6 lg:px-8">
+          <div className="px-4 sm:px-6 lg:px-8 max-w-screen-lg mx-auto">
             <div className="text-center mb-10">
               <h2 className="text-2xl font-bold mb-3 bg-gradient-to-r from-white to-purple-300 bg-clip-text text-transparent">
                 {t.featuresTitle}
@@ -223,7 +220,7 @@ export default function Home() {
               <p className="text-purple-200 max-w-2xl mx-auto">{t.featuresSubtitle}</p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="flex flex-wrap justify-center gap-4">
               <FeatureCard
                 icon={<Shield className="h-5 w-5 text-purple-400" />}
                 title={t.undetectedTitle}
@@ -245,8 +242,8 @@ export default function Home() {
 
 
         {/* CTA Section */}
-        <section className="py-12">
-          <div className="px-4 sm:px-6 lg:px-8">
+        <section className="py-8">
+          <div className="px-4 sm:px-6 lg:px-8 max-w-screen-lg mx-auto">
             <div className="bg-purple-900/20 rounded-xl p-8 border border-purple-800/30 text-center backdrop-blur-sm">
               <div className="max-w-2xl mx-auto">
                 <h2 className="text-2xl font-bold mb-3 text-white">{t.ctaTitle}</h2>
@@ -263,7 +260,7 @@ export default function Home() {
 
         {/* Stats Section */}
         <section className="pb-16">
-          <div className="px-4 sm:px-6 lg:px-8">
+          <div className="px-4 sm:px-6 lg:px-8 max-w-screen-lg mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <StatCard number="1,000+" label={t.happyUsers} />
               <StatCard number="4" label={t.gamePlatforms} />
@@ -279,7 +276,7 @@ export default function Home() {
 
 function FeatureCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
   return (
-    <div className="bg-black/50 border border-purple-800/30 hover:border-purple-600/50 backdrop-blur-sm p-5 rounded-lg transition-all hover:bg-purple-900/10">
+    <div className="w-[250px] bg-black/50 border border-purple-800/30 hover:border-purple-600/50 backdrop-blur-sm p-5 rounded-lg transition-all hover:bg-purple-900/10">
       <div className="bg-purple-900/30 p-2.5 rounded-md w-fit mb-3">{icon}</div>
       <h3 className="text-lg font-semibold text-white mb-2">{title}</h3>
       <p className="text-purple-200 text-sm">{description}</p>

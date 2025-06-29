@@ -8,25 +8,10 @@ import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu, ChevronDown, MessageSquare, Globe } from "lucide-react"
-import PurplewareLogo from './purpleware-logo'; // Assuming you have this now
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  // REMOVED: const [language, setLanguage] = useState("EN")
   const pathname = usePathname()
-
-  // REMOVED: useEffect(() => {
-  // REMOVED:   const savedLanguage = localStorage.getItem("language") || "EN"
-  // REMOVED:   setLanguage(savedLanguage)
-  // REMOVED: }, [])
-
-  // REMOVED: useEffect(() => {
-  // REMOVED:   const handleLanguageChange = (event: CustomEvent) => {
-  // REMOVED:     setLanguage(event.detail)
-  // REMOVED:   }
-  // REMOVED:   window.addEventListener("languageChange", handleLanguageChange as EventListener)
-  // REMOVED:   return () => window.removeEventListener("languageChange", handleLanguageChange as EventListener)
-  // REMOVED: }, [])
 
   const translations = {
     EN: {
@@ -49,7 +34,6 @@ export default function Navbar() {
     },
   }
 
-  // REMOVED: const t = translations["EN"] // Default to English since the toggle is gone
   const t = translations["EN"]; // Default to English since the toggle is removed
 
   const gameLinks = [
@@ -63,7 +47,11 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 w-full border-b border-purple-900/30 bg-black/80 backdrop-blur-lg supports-[backdrop-filter]:bg-black/80 shadow-lg shadow-purple-900/10 transition-all duration-300 ease-in-out">
       <div className="flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo - Left Side */}
-        <PurplewareLogo />
+        <Link href="/" className="relative flex items-baseline">
+          <span className="text-purple-500 font-bold text-2xl">Purpleware</span> {/* Main "Purpleware" text */}
+          {/* Adjusted left position and top position to prevent clipping */}
+          <span className="absolute top-[0px] left-[calc(100%+5px)] text-xs text-purple-300 whitespace-nowrap">Beta</span> {/* "Beta" text */}
+        </Link>
 
         {/* Desktop Navigation - Right Side */}
         <div className="hidden lg:flex items-center space-x-6"> {/* Adjusted spacing */}
@@ -143,10 +131,12 @@ export default function Navbar() {
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[320px] bg-black border-l border-purple-900/30"> {/* Added border-l */}
+            <SheetContent side="right" className="w-[10px] bg-black border-l border-purple-900/30"> {/* Added border-l */}
               <div className="flex flex-col space-y-4 mt-8">
-                <div className="flex items-center space-x-2 mb-6 px-4"> {/* ADDED px-4 here for mobile logo spacing */}
-                  <PurplewareLogo />
+                <div className="flex items-baseline space-x-2 mb-6 px-4 relative"> {/* ADDED px-4 here for mobile logo spacing, adjusted to items-baseline and relative */}
+                    <span className="text-purple-500 font-bold text-2xl">Purpleware</span> {/* Mobile "Purpleware" text */}
+                    {/* Adjusted left position and top position to prevent clipping */}
+                    <span className="absolute top-[0px] left-[calc(100%+5px)] text-xs text-purple-300 whitespace-nowrap">Beta</span> {/* Mobile "Beta" text */}
                 </div>
 
                 <div className="space-y-1"> {/* Tighter spacing for mobile links */}
