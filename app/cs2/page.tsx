@@ -117,7 +117,7 @@ export default function CS2Cheats() {
       ],
       popular: true,
       downloadUrl:
-        "https://github.com/iloveskiddingcodeaha/Purpleware/raw/refs/heads/main/AIMWARE%20UPDATED%20-%20PW.zip",
+        "https://gofile.io/d/HNnrV6",
       password: language === "RU" ? "Ничего!" : "Nothing!",
     },
     {
