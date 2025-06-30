@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
-import "./login-gate.css"; // Create this stylesheet next
+import "./login-gate.css";
 
-const VALID_INVITE = "kAYUnk32kjhAHJjaA"; // change to your code
+const VALID_INVITE = "kAYUnk32kjhAHJjaA";
 
 export default function LoginGate({ children }: { children: React.ReactNode }) {
   const [unlocked, setUnlocked] = useState(false);
@@ -42,6 +42,15 @@ export default function LoginGate({ children }: { children: React.ReactNode }) {
           onChange={(e) => setUsername(e.target.value)}
         />
         <button onClick={handleLogin}>Enter</button>
+        {/* Discord button under Enter */}
+        <a
+          href="https://discord.gg/c62dDQ8HEF"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="discord-btn"
+        >
+          Join our Discord
+        </a>
       </div>
     </div>
   );

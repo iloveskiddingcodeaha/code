@@ -46,3 +46,21 @@
   font-size: 16px;
   cursor: pointer;
 }
+
+.discord-btn {
+  display: block;
+  margin-top: 12px;
+  padding: 10px 16px;
+  background: #5865f2;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  transition: background 0.3s ease;
+  text-align: center;
+}
+
+.discord-btn:hover {
+  background: #4752c4;
+}
