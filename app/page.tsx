@@ -9,7 +9,6 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import Sparkle from 'react-sparkle'
 
-// Move the translations object outside the Home component
 const translations = {
   EN: {
     heroTitle: "Welcome to Purpleware?",
@@ -18,10 +17,10 @@ const translations = {
     discordButton: "Join Discord",
     gamesTitle: "Cheats we provide at the time being:",
     gamesSubtitle: "",
-    cs2Description: "Advanced cheats for Counter-Strike 2 with undetected features",
-    csgoDescription: "Legacy hacks for CS:GO that still work flawlessly",
-    valorantDescription: "Precision aimbots and ESP for Valorant",
-    robloxDescription: "Powerful scripts and exploits for Roblox games",
+    cs2Description: "Skidded and stolen cheats from the purpleware dev team!",
+    csgoDescription: "Cheat for CS:GO that still work, like skeet etc.",
+    valorantDescription: "Cheats for the faggot game valorant.",
+    skidDescription: "Wanna make your own cheat? Can't code? Skid code.",
     viewCheats: "View Cheats",
     featuresTitle: "Why Choose Purpleware",
     featuresSubtitle: "We deliver quality, reliability, and performance.",
@@ -51,6 +50,7 @@ const translations = {
     csgoDescription: "Наследие хаков для CS:GO, которые все еще работают безупречно",
     valorantDescription: "Точные аимботы и ESP для Valorant",
     robloxDescription: "Мощные скрипты и эксплойты для игр Roblox",
+    skidDescription: "Случайные крякнутые и скопированные инструменты со всего интернета",
     viewCheats: "Посмотреть читы",
     featuresTitle: "Почему выбирают Purpleware",
     featuresSubtitle: "Мы обеспечиваем качество, надежность и производительность.",
@@ -110,14 +110,34 @@ export default function Home() {
       href: "/valorant-cheats",
       icon: <span className="text-white font-bold text-sm">VAL</span>,
     },
-    // Uncomment if you decide to add Roblox to your Home page display
-    // {
-    //   name: "Roblox",
-    //   description: t.robloxDescription,
-    //   href: "/roblox-cheats",
-    //   icon: <span className="text-white font-bold text-sm">RBLX</span>,
-    // },
+    {
+      name: "Skid",
+      description: t.skidDescription,
+      href: "/skid",
+      icon: <span className="text-white font-bold text-sm">SKD</span>,
+    },
   ]
+
+
+function FeatureCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
+  return (
+    <div className="w-[250px] bg-black/50 border border-purple-800/30 hover:border-purple-600/50 backdrop-blur-sm p-5 rounded-lg transition-all hover:bg-purple-900/10">
+      <div className="bg-purple-900/30 p-2.5 rounded-md w-fit mb-3">{icon}</div>
+      <h3 className="text-lg font-semibold text-white mb-2">{title}</h3>
+      <p className="text-purple-200 text-sm">{description}</p>
+    </div>
+  )
+}
+
+function StatCard({ number, label }: { number: string; label: string }) {
+  return (
+    <div className="bg-black/50 border border-purple-800/30 hover:border-purple-600/50 backdrop-blur-sm p-4 text-center rounded-lg transition-all hover:bg-purple-900/10">
+      <div className="text-2xl font-bold text-white mb-1">{number}</div>
+      <div className="text-purple-200 text-sm">{label}</div>
+    </div>
+  )
+}
+
 
   return (
     <div className="relative min-h-screen">
