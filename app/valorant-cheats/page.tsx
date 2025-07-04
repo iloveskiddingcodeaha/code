@@ -57,8 +57,8 @@ export default function ValorantCheats() {
       popular: true,
       downloadUrl: "https://someurl.com/phantom",
       password: "phantom123"
-    },
-
+    }
+  ]; // ✅ FIXED: added closing bracket and semicolon
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -162,7 +162,7 @@ export default function ValorantCheats() {
         initial="hidden"
         animate={isLoaded ? "visible" : "hidden"}
       >
-        {valorantCheats.map((cheat, idx) => (
+        {valorantCheats.map((cheat) => (
           <motion.div key={cheat.id} variants={itemVariants} whileHover={{ y: -5 }}>
             <Card className="bg-[#050212] border-purple-900/40 hover:border-purple-700 transition-all duration-300 h-full">
               <CardHeader>
