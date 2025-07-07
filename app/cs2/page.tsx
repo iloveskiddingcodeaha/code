@@ -82,7 +82,7 @@ export default function CS2Cheats() {
           : "Most well known and shitted on cheats, fun to use, is an exe do your own research on it.",
       features: ["ESP", language === "RU" ? "Смена скинов" : "Skin Changer", "Aimbot"],
       popular: false,
-      downloadUrl: "https://gofile.io/d/HNnrV6",
+      downloadUrl: "https://gofile.io/d/EkC7XG",
       password: language === "RU" ? "Ничего!" : "Nothing!",
     },
     {
@@ -95,7 +95,7 @@ export default function CS2Cheats() {
           : "Pretty decent cheat, needs extreme injector to use the DLL.",
       features: ["ESP", language === "RU" ? "Смена скинов" : "Skin Changer", "Aimbot"],
       popular: false,
-      downloadUrl: "https://github.com/iloveskiddingcodeaha/purpleware.xyz/raw/refs/heads/main/Enigma%20-%20Purpleware.zip",
+      downloadUrl: "https://github.com/iloveskiddingcodeaha/purpleware.xyz/raw/refs/heads/main/enigmav2.dll",
       password: language === "RU" ? "Ничего!" : "Nothing!",
     },
     {
@@ -108,7 +108,7 @@ export default function CS2Cheats() {
           : "Ok cheat, basic cheat for noobs, needs extreme injector to use the DLL.",
       features: ["ESP", language === "RU" ? "Смена скинов" : "Skin Changer", "Aimbot"],
       popular: false,
-      downloadUrl: "https://github.com/iloveskiddingcodeaha/purpleware.xyz/raw/refs/heads/main/Exhack%20-%20Purpleware.zip",
+      downloadUrl: "https://github.com/iloveskiddingcodeaha/purpleware.xyz/raw/refs/heads/main/exhack.dll",
       password: language === "RU" ? "Ничего!" : "Nothing!",
     },
     {
@@ -126,15 +126,15 @@ export default function CS2Cheats() {
     },
     {
       id: 7,
-      title: "Ecstasy | HVH/semi-rage",
+      title: "Memesense | Legit/semi-rage",
       game: "CS2",
       description:
         language === "RU"
           ? "Довольно приличный чит, нужен extreme injector для использования DLL."
-          : "New cheat to the market, already a bad rep for the owners, Is an exe do your own research",
+          : "Best Semirage cheat out there, isnt working at the time being, will be updated SOON!",
       features: ["ESP", language === "RU" ? "Смена скинов" : "Skin Changer", "Aimbot"],
       popular: false,
-      downloadUrl: "https://gofile.io/d/uiJOC9",
+      downloadUrl: "https://gofile.io/d/cAFXU5",
       password: language === "RU" ? "Ничего!" : "Nothing!",
     },
   ]

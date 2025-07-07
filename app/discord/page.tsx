@@ -1,78 +1,12 @@
-// app/page.tsx
 "use client"
 
-import type React from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Download, Shield, Zap, ChevronRight } from "lucide-react"
+import { MessageSquare, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import { useEffect, useState } from "react"
-import Sparkle from 'react-sparkle'
 
-const translations = {
-  EN: {
-    heroTitle: "Welcome to Purpleware?",
-    heroSubtitle: "We skid and steal so you don't.",
-    cs2Button: "CS2 Cheats",
-    discordButton: "Join Discord",
-    gamesTitle: "Cheats we provide at the time being:",
-    gamesSubtitle: "",
-    cs2Description: "Advanced cheats for Counter-Strike 2 with undetected features",
-    csgoDescription: "Legacy hacks for CS:GO that still work flawlessly",
-    valorantDescription: "Precision aimbots and ESP for Valorant",
-    robloxDescription: "Powerful scripts and exploits for Roblox games",
-    skidDescription: "Random cracked and skidded tools from around the internet",
-    viewCheats: "View Cheats",
-    featuresTitle: "Why Choose Purpleware",
-    featuresSubtitle: "We deliver quality, reliability, and performance.",
-    undetectedTitle: "Undetected",
-    undetectedDesc: "Our tools use advanced techniques to stay hidden from anti-cheat systems.",
-    updatesTitle: "Regular Updates",
-    updatesDesc: "Weekly updates to ensure compatibility with the latest game versions.",
-    setupTitle: "Easy Setup",
-    setupDesc: "Simple installation process with comprehensive support documentation.",
-    ctaTitle: "Ready to dominate?",
-    ctaSubtitle: "Join our community and access premium gaming tools.",
-    joinDiscord: "Join Discord",
-    happyUsers: "Happy Users",
-    gamePlatforms: "Game Platforms",
-    differentCheats: "Different Tools",
-    updates: "Updates",
-    weekly: "Weekly",
-  },
-  RU: {
-    heroTitle: "Добро пожаловать в Purpleware",
-    heroSubtitle: "Получите несправедливое преимущество с нашими премиум инструментами.",
-    cs2Button: "Читы CS2",
-    discordButton: "Присоединиться к Discord",
-    gamesTitle: "Читы для всех ваших любимых игр",
-    gamesSubtitle: "Премиум инструменты для каждой игры, созданные до совершенства.",
-    cs2Description: "Продвинутые читы для Counter-Strike 2 с необнаруживаемыми функциями",
-    csgoDescription: "Наследие хаков для CS:GO, которые все еще работают безупречно",
-    valorantDescription: "Точные аимботы и ESP для Valorant",
-    robloxDescription: "Мощные скрипты и эксплойты для игр Roblox",
-    skidDescription: "Случайные крякнутые и скопированные инструменты со всего интернета",
-    viewCheats: "Посмотреть читы",
-    featuresTitle: "Почему выбирают Purpleware",
-    featuresSubtitle: "Мы обеспечиваем качество, надежность и производительность.",
-    undetectedTitle: "Необнаруживаемые",
-    undetectedDesc: "Наши инструменты используют передовые техники, чтобы оставаться скрытыми от анти-чит систем.",
-    updatesTitle: "Регулярные обновления",
-    updatesDesc: "Еженедельные обновления для обеспечения совместимости с последними версиями игр.",
-    setupTitle: "Простая установка",
-    setupDesc: "Простой процесс установки с полной документацией поддержки.",
-    ctaTitle: "Готовы доминировать?",
-    ctaSubtitle: "Присоединяйтесь к нашему сообществу и получите доступ к премиум игровым инструментам.",
-    joinDiscord: "Присоединиться к Discord",
-    happyUsers: "Довольных пользователей",
-    gamePlatforms: "Игровых платформ",
-    differentCheats: "Различных инструментов",
-    updates: "Обновления",
-    weekly: "Еженедельно",
-  },
-}
-
-export default function Home() {
+export default function DiscordPage() {
   const [isLoaded, setIsLoaded] = useState(false)
   const [language, setLanguage] = useState("EN")
 
@@ -90,39 +24,93 @@ export default function Home() {
     return () => window.removeEventListener("languageChange", handleLanguageChange as EventListener)
   }, [])
 
-  const t = translations[language]
+  const translations = {
+    EN: {
+      title: "Join Our Discord Server",
+      subtitle: "Connect with cheaters, crazy russians and more.",
+      joinDiscord: "Join Discord Server",
+      members: "Members",
+      online: "Online",
+      channels: "Channels",
+    },
+    RU: {
+      title: "Присоединяйтесь к нашему Discord сообществу",
+      subtitle: "Общайтесь с другими игроками, получайте поддержку и доступ к эксклюзивному контенту.",
+      joinDiscord: "Присоединиться к Discord серверу",
+      members: "Участников",
+      online: "Онлайн",
+      channels: "Каналов",
+    },
+  }
 
-  const gameCategories = [
-    {
-      name: "CS2",
-      description: t.cs2Description,
-      href: "/cs2",
-      icon: <span className="text-white font-bold text-2xl">CS2</span>,
-    },
-    {
-      name: "CSGO",
-      description: t.csgoDescription,
-      href: "/csgo-cheats",
-      icon: <span className="text-white font-bold text-2xl">CSGO</span>,
-    },
-    {
-      name: "Valorant",
-      description: t.valorantDescription,
-      href: "/valorant-cheats",
-      icon: <span className="text-white font-bold text-2xl">VAL</span>,
-    },
-    {
-      name: "Skid",
-      description: t.skidDescription,
-      href: "/skid",
-      icon: <span className="text-white font-bold text-2xl">SKD</span>,
-    },
-  ]
+  const t = translations[language as keyof typeof translations]
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-black via-purple-950 to-black">
-      <div className="relative z-10 space-y-16">
-        {/* Remaining page content... */}
+    <div className="relative min-h-screen">
+      {/* Purple Discord Background */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-10 left-10 w-80 h-80 bg-purple-600/8 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-400/15 rounded-full blur-2xl"></div>
+      </div>
+
+      <div className="relative z-10 container mx-auto px-4 py-12 space-y-12">
+        {/* Header */}
+        <div className="text-center space-y-6">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-purple-600 rounded-full mb-4 shadow-lg shadow-purple-600/30">
+            <MessageSquare className="h-10 w-10 text-white" />
+          </div>
+
+          <h1 className="text-4xl md:text-5xl font-bold">
+            <span className="bg-gradient-to-r from-white via-purple-200 to-purple-400 bg-clip-text text-transparent">
+              {t.title}
+            </span>
+          </h1>
+
+          <p className="text-xl text-purple-200 max-w-3xl mx-auto">{t.subtitle}</p>
+
+          <div className="flex justify-center">
+            <Link href="https://discord.gg/YHmmkba6RK" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-md border border-purple-500/50 shadow-lg shadow-purple-600/20 hover:shadow-purple-600/30 transition-all text-lg">
+                <MessageSquare className="mr-2 h-5 w-5" />
+                {t.joinDiscord}
+                <ExternalLink className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+
+        {/* Server Stats */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Card className="bg-black/50 border border-purple-800/30 hover:border-purple-600/50 backdrop-blur-sm text-center">
+            <CardContent className="p-6">
+              <div className="text-3xl font-bold text-white mb-2">2,900+</div>
+              <div className="text-purple-200">{t.members}</div>
+            </CardContent>
+          </Card>
+          <Card className="bg-black/50 border border-purple-800/30 hover:border-purple-600/50 backdrop-blur-sm text-center">
+            <CardContent className="p-6">
+              <div className="text-3xl font-bold text-white mb-2">200+</div>
+              <div className="text-purple-200">{t.online}</div>
+            </CardContent>
+          </Card>
+          <Card className="bg-black/50 border border-purple-800/30 hover:border-purple-600/50 backdrop-blur-sm text-center">
+            <CardContent className="p-6">
+              <div className="text-3xl font-bold text-white mb-2">15+</div>
+              <div className="text-purple-200">{t.channels}</div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Final CTA */}
+        <div className="text-center py-12">
+          <Link href="https://discord.gg/YHmmkba6RK" target="_blank" rel="noopener noreferrer">
+            <Button className="bg-zinc-900 hover:bg-zinc-800 border border-purple-800/50 text-purple-300 hover:text-white px-8 py-3 rounded-md shadow-lg transition-all">
+              <MessageSquare className="mr-2 h-5 w-5" />
+              <ExternalLink className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
+        </div>
       </div>
     </div>
   )
