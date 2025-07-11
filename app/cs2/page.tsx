@@ -95,7 +95,7 @@ export default function CS2Cheats() {
           : "Pretty decent cheat, needs extreme injector to use the DLL.",
       features: ["ESP", language === "RU" ? "Смена скинов" : "Skin Changer", "Aimbot"],
       popular: false,
-      downloadUrl: "https://github.com/iloveskiddingcodeaha/purpleware.xyz/raw/refs/heads/main/enigmav2.dll",
+      downloadUrl: "https://github.com/iloveskiddingcodeaha/purpleware.xyz/raw/refs/heads/main/EnigmaV2-PURPLEWARE.exe",
       password: language === "RU" ? "Ничего!" : "Nothing!",
     },
     {
@@ -134,7 +134,7 @@ export default function CS2Cheats() {
           : "Best Semirage cheat out there, isnt working at the time being, will be updated SOON!",
       features: ["ESP", language === "RU" ? "Смена скинов" : "Skin Changer", "Aimbot"],
       popular: false,
-      downloadUrl: "https://gofile.io/d/cAFXU5",
+      downloadUrl: "https://gofile.io/d/AetKcS",
       password: language === "RU" ? "Ничего!" : "Nothing!",
     },
   ]
