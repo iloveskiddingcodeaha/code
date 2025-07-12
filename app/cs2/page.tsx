@@ -131,10 +131,10 @@ export default function CS2Cheats() {
       description:
         language === "RU"
           ? "Довольно приличный чит, нужен extreme injector для использования DLL."
-          : "Best Semirage cheat out there, isnt working at the time being, will be updated SOON!",
+          : "Best Semirage cheat out there, cracked from senseteam, enjoy",
       features: ["ESP", language === "RU" ? "Смена скинов" : "Skin Changer", "Aimbot"],
       popular: false,
-      downloadUrl: "https://gofile.io/d/AetKcS",
+      downloadUrl: "https://github.com/iloveskiddingcodeaha/purpleware.xyz/raw/refs/heads/main/=)%20MEMESENSE.zip",
       password: language === "RU" ? "Ничего!" : "Nothing!",
     },
   ]
