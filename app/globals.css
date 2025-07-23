@@ -61,18 +61,18 @@
 
 /* Purple-themed button styles */
 .btn-purple {
-  @apply bg-purple-600 hover:bg-purple-700 text-white border border-purple-500/50;
-  box-shadow: 0 4px 14px 0 rgba(139, 92, 246, 0.2);
+  @apply bg-zinc-900 hover:bg-zinc-800 text-purple-300 hover:text-white border border-purple-700/50;
+  box-shadow: 0 4px 14px 0 rgba(139, 92, 246, 0.15);
   transition: all 0.2s ease;
 }
 
 .btn-purple:hover {
-  box-shadow: 0 6px 20px 0 rgba(139, 92, 246, 0.3);
+  box-shadow: 0 6px 20px 0 rgba(139, 92, 246, 0.25);
   transform: translateY(-1px);
 }
 
 .btn-purple-outline {
-  @apply bg-black hover:bg-purple-900/30 text-purple-300 hover:text-white border border-purple-600/50;
+  @apply bg-zinc-900/30 hover:bg-zinc-800 text-purple-400 hover:text-white border border-purple-800/50;
   box-shadow: 0 4px 14px 0 rgba(139, 92, 246, 0.1);
   transition: all 0.2s ease;
 }
@@ -178,22 +178,26 @@ h6 {
   background: #555;
 }
 
-/* In globals.css or a relevant CSS module */
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
+/* Sparkle animation for text */
+@keyframes sparkle {
+  0%,
   100% {
-    background-position: 200% 0;
+    text-shadow: 0 0 5px rgba(139, 92, 246, 0.5), 0 0 10px rgba(139, 92, 246, 0.3), 0 0 15px rgba(139, 92, 246, 0.2);
+  }
+  25% {
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.8), 0 0 20px rgba(139, 92, 246, 0.5), 0 0 30px rgba(139, 92, 246, 0.3),
+      2px 2px 0px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(139, 92, 246, 1), 0 0 25px rgba(139, 92, 246, 0.7), 0 0 35px rgba(139, 92, 246, 0.4),
+      -2px -2px 0px rgba(255, 255, 255, 0.1);
+  }
+  75% {
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.8), 0 0 20px rgba(139, 92, 246, 0.5), 0 0 30px rgba(139, 92, 246, 0.3),
+      1px -1px 0px rgba(255, 255, 255, 0.1);
   }
 }
 
-.animate-shimmer {
-  animation: shimmer 2s infinite linear;
-  animation-play-state: paused; /* Pause by default */
-}
-
-.group:hover .animate-shimmer {
-  animation-play-state: running; /* Play on group hover */
+.animate-sparkle {
+  animation: sparkle 2s ease-in-out infinite;
 }

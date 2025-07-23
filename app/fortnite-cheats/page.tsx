@@ -3,12 +3,12 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Download, Star, Lock } from "lucide-react"
+import { Download, Star, Lock, Sparkles } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 
-export default function CS2Cheats() {
+export default function FortniteCheats() {
   const [isLoaded, setIsLoaded] = useState(false)
   const [language, setLanguage] = useState("EN")
 
@@ -28,8 +28,8 @@ export default function CS2Cheats() {
 
   const translations = {
     EN: {
-      title: `CS2 Cheats/HVH Cheats`,
-      subtitle: `Kill everyone with our (cracked) cheats..`,
+      title: `Fortnite Cheats/Battle Royale Hacks`,
+      subtitle: `Dominate the battlefield with our undetected Fortnite tools..`,
       popularCheats: `Popular Cheats`,
       moreCheats: `More Cheats`,
       password: `Password`,
@@ -39,12 +39,12 @@ export default function CS2Cheats() {
       step1: `Download the cheat using the button (duh)`,
       step2: `Extract the files with the password we gave you`,
       step3: `Run the loader as admin and follow the instructions (some cheats need extreme injector, grab it from our discord)`,
-      step4: `Launch CS2 and start destroying everyone`,
+      step4: `Launch Fortnite and start getting Victory Royales`,
       troubleHelp: `Having trouble? Hit us up on Discord and we'll help you get set up.`,
     },
     RU: {
-      title: `Читы CS2/HVH читы`,
-      subtitle: `Убивайте всех нашими (взломанными) читами..`,
+      title: `Читы Fortnite/Хаки Battle Royale`,
+      subtitle: `Доминируйте на поле боя с нашими необнаруживаемыми инструментами Fortnite..`,
       popularCheats: `Популярные читы`,
       moreCheats: `Больше читов`,
       password: `Пароль`,
@@ -54,7 +54,7 @@ export default function CS2Cheats() {
       step1: `Скачайте чит, используя кнопку (очевидно)`,
       step2: `Распакуйте файлы с паролем, который мы дали вам`,
       step3: `Запустите загрузчик от имени администратора и следуйте инструкциям (некоторые читы требуют extreme injector, возьмите его из нашего discord)`,
-      step4: `Запустите CS2 и начните уничтожать всех`,
+      step4: `Запустите Fortnite и начните получать Victory Royale`,
       troubleHelp: `Проблемы? Обратитесь к нам в Discord, и мы поможем вам настроить.`,
     },
   }
@@ -65,80 +65,84 @@ export default function CS2Cheats() {
   const mainCheats = [
     {
       id: 1,
-      title: ` Nonagon | HvH`,
-      game: "CS2",
+      title: `FortniteHax | Aimbot/ESP`,
+      game: "Fortnite",
       description:
         language === "RU"
-          ? `Безумно хороший аимбот с настраиваемым FOV и плавностью. Имеет контроль отдачи и триггер бот, лучший для HvH.`
-          : `Crazy good aimbot with adjustable FOV and smoothness. Has recoil control and trigger bot, best for HvH.`,
-      features: ["HvH", "ESP", "Bhop"],
+          ? `Мощный чит для Fortnite с продвинутым аимботом и ESP. Идеально подходит для Battle Royale.`
+          : `Powerful Fortnite cheat with advanced aimbot and ESP. Perfect for Battle Royale domination.`,
+      features: ["Aimbot", "ESP", "No Recoil"],
       popular: true,
-      downloadUrl: "https://lootdest.org/s?syK5j8Qj",
-      password: "nonagon",
+      downloadUrl: "https://lootdest.org/s?fortnitehax",
+      password: "fortnite123",
     },
     {
       id: 2,
-      title: `Lightmoon | Legit/OBS-Bypass `,
-      game: "CS2",
+      title: `RoyaleCheat | External`,
+      game: "Fortnite",
       description:
         language === "RU"
-          ? `Довольно приличный чит, нужен extreme injector для использования DLL, хорош для легитного/рейдж читинга.`
-          : `Pretty decent cheat, needs extreme injector to use the DLL, good for legit/rage Cheating.`,
-      features: [
-        "ESP",
-        language === "RU" ? `Смена скинов` : "Skin Changer",
-        language === "RU" ? `Аимбот и др.` : "Aimbot ETC",
-      ],
+          ? `Внешний чит для Fortnite с отличными функциями безопасности. Стабильный и надежный.`
+          : `External Fortnite cheat with excellent safety features. Stable and reliable.`,
+      features: ["External", language === "RU" ? `Безопасный` : "Safe", language === "RU" ? `Визуалы` : "Visuals"],
       popular: false,
-      downloadUrl:
-        "https://github.com/iloveskiddingcodeaha/Purpleware/raw/refs/heads/main/Lightmoon%20-%20Purpleware.zip",
+      downloadUrl: "https://github.com/purpleware/royalecheat.zip",
       password: language === "RU" ? `Ничего!` : "Nothing!",
     },
     {
       id: 3,
-      title: `Aimware | Rage/semi-rage`,
-      game: "CS2",
+      title: `VictoryHack | Rage`,
+      game: "Fortnite",
       description:
         language === "RU"
-          ? `Самый мусорный взломанный чит года, все еще действительно хорош с хорошим конфигом и т.д., присоединяйтесь к серверу discord для получения дополнительной информации..`
-          : `Most trash cracked cheat of the year, still really good with a good config ETC, join discord server for more info..`,
+          ? `Рейдж чит для Fortnite с мощными функциями. Получайте Victory Royale каждый раз.`
+          : `Rage cheat for Fortnite with powerful features. Get Victory Royale every time.`,
       features: [
-        language === "RU" ? `Триггер бот` : "Trigger Bot",
-        language === "RU" ? `Настройки задержки` : "Delay Settings",
-        language === "RU" ? `Пользовательские привязки клавиш` : "Custom Keybinds",
+        language === "RU" ? `Рейдж` : "Rage",
+        language === "RU" ? `Скорострельность` : "Rapid Fire",
+        language === "RU" ? `Телепорт` : "Teleport",
       ],
       popular: true,
-      downloadUrl: "https://gofile.io/d/eMOVZv",
+      downloadUrl: "https://gofile.io/d/victoryhack",
       password: language === "RU" ? `Ничего!` : "Nothing!",
     },
     {
       id: 4,
-      title: `Xchanger | Legit`,
-      game: "CS2",
+      title: `BuildHax | Building`,
+      game: "Fortnite",
       description:
         language === "RU"
-          ? `Легитный чит для cs2, очень простой аимбот, смена скинов идет с читом, нужен extreme injector, скачайте из discord!`
-          : `Legit cheat for cs2, very basic and simple aimbot, Skin changer comes with the cheat, needs extreme injector, download from discord!`,
-      features: [language === "RU" ? `Аимбот` : "Aimbot", "ESP", language === "RU" ? `Визуалы` : "Visuals"],
+          ? `Специализированный чит для строительства в Fortnite. Стройте быстрее всех.`
+          : `Specialized building cheat for Fortnite. Build faster than anyone else.`,
+      features: [
+        language === "RU" ? `Строительство` : "Building",
+        "Auto Build",
+        language === "RU" ? `Скорость` : "Speed",
+      ],
       popular: true,
-      downloadUrl: "https://lootdest.org/s?9xGXMiBQ",
+      downloadUrl: "https://lootdest.org/s?buildhax",
       password: language === "RU" ? `Ничего!` : "Nothing!",
     },
+  ]
+
+  // New cheats row
+  const newCheats = [
     {
-      id: 6,
-      title: `Osiris | External/Legit`,
-      game: "CS2",
+      id: 5,
+      title: `FortniteNew | Beta`,
+      game: "Fortnite",
       description:
         language === "RU"
-          ? `Внешний чит с хорошими функциями для легитной игры. Простой в использовании и стабильный.`
-          : `External cheat with good features for legit play. Easy to use and stable.`,
+          ? `Новейший чит для Fortnite в бета-версии. Получите ранний доступ к новым функциям!`
+          : `Newest Fortnite cheat in beta version. Get early access to new features!`,
       features: [
-        language === "RU" ? `Внешний` : "External",
-        language === "RU" ? `Легитный аимбот` : "Legit Aimbot",
-        language === "RU" ? `Триггербот` : "Triggerbot",
+        language === "RU" ? `Бета` : "Beta",
+        language === "RU" ? `Новые функции` : "New Features",
+        language === "RU" ? `Тестирование` : "Testing",
       ],
-      popular: false,
-      downloadUrl: "https://github.com/iloveskiddingcodeaha/Purpleware/raw/refs/heads/main/Osiris-CS2.zip",
+      popular: true,
+      new: true,
+      downloadUrl: "https://lootdest.org/s?fortnitenew",
       password: language === "RU" ? `Ничего!` : "Nothing!",
     },
   ]
@@ -198,7 +202,7 @@ export default function CS2Cheats() {
             ease: "easeInOut",
           }}
         >
-          <span className="text-white font-bold text-xl">CS2</span>
+          <span className="text-white font-bold text-xl">FN</span>
         </motion.div>
 
         <motion.h1
@@ -274,7 +278,7 @@ export default function CS2Cheats() {
                       backgroundSize: "20px 20px",
                     }}
                   />
-                  <span className="text-white font-bold text-xl relative z-10">CS2</span>
+                  <span className="text-white font-bold text-xl relative z-10">FN</span>
                   {cheat.popular && (
                     <motion.div
                       className="absolute top-2 right-2"
@@ -303,6 +307,111 @@ export default function CS2Cheats() {
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.5 + idx * 0.1 }}
+                      >
+                        <Badge variant="secondary" className="bg-purple-900/40 text-purple-100 border-purple-900/50">
+                          {feature}
+                        </Badge>
+                      </motion.div>
+                    ))}
+                  </div>
+                  <div className="flex items-center text-xs text-amber-400">
+                    <Lock className="h-3 w-3 mr-1" /> {t.password}: {cheat.password}
+                  </div>
+                </CardContent>
+                <CardFooter>
+                  <Link href={cheat.downloadUrl} className="w-full" target="_blank" rel="noopener noreferrer">
+                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                      <Button className="w-full bg-zinc-900 hover:bg-zinc-800 border border-purple-800/50 text-purple-300 hover:text-white relative overflow-hidden group transition-all duration-300">
+                        <motion.span
+                          className="absolute inset-0 bg-gradient-to-r from-zinc-700/0 via-purple-800/20 to-zinc-700/0"
+                          animate={{
+                            x: ["-100%", "200%"],
+                          }}
+                          transition={{
+                            duration: 1.5,
+                            repeat: Number.POSITIVE_INFINITY,
+                            ease: "linear",
+                            repeatDelay: 0.5,
+                          }}
+                        />
+                        <span className="relative z-10 flex items-center">
+                          {t.download}{" "}
+                          <Download className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
+                        </span>
+                      </Button>
+                    </motion.div>
+                  </Link>
+                </CardFooter>
+              </Card>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* New Cheats Row */}
+      <div>
+        <motion.h2
+          className="text-2xl font-bold text-purple-100 mb-6"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          {t.moreCheats}
+        </motion.h2>
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isLoaded ? "visible" : "hidden"}
+          transition={{ delayChildren: 0.3 }}
+        >
+          {newCheats.map((cheat) => (
+            <motion.div key={cheat.id} variants={itemVariants} whileHover={{ y: -5, transition: { duration: 0.2 } }}>
+              <Card className="bg-[#050212] border-purple-900/40 hover:border-purple-700 transition-all duration-300 h-full">
+                <motion.div
+                  className="bg-purple-800 h-24 flex items-center justify-center relative overflow-hidden"
+                  whileHover={{
+                    backgroundColor: "#6d28d9",
+                    transition: { duration: 0.3 },
+                  }}
+                >
+                  <div
+                    className="absolute inset-0 opacity-10"
+                    style={{
+                      backgroundImage: `
+                      linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px)
+                    `,
+                      backgroundSize: "20px 20px",
+                    }}
+                  />
+                  <span className="text-white font-bold text-xl relative z-10">FN</span>
+                  <motion.div
+                    className="absolute top-2 right-2"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.5, type: "spring" }}
+                  >
+                    <Badge className="bg-purple-600">
+                      <Sparkles className="h-3 w-3 mr-1" /> {t.new}
+                    </Badge>
+                  </motion.div>
+                </motion.div>
+                <CardHeader>
+                  <Badge variant="outline" className="mb-2 w-fit border-purple-800/50 text-purple-200 bg-purple-900/30">
+                    {cheat.game}
+                  </Badge>
+                  <CardTitle className="text-xl text-purple-100">{cheat.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-purple-200">{cheat.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {cheat.features.map((feature, idx) => (
+                      <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.6 + idx * 0.1 }}
                       >
                         <Badge variant="secondary" className="bg-purple-900/40 text-purple-100 border-purple-900/50">
                           {feature}

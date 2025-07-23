@@ -26,8 +26,8 @@ export default function DiscordPage() {
 
   const translations = {
     EN: {
-      title: "Join Our Discord Server",
-      subtitle: "Connect with cheaters, crazy russians and more.",
+      title: "Join Our Discord Community",
+      subtitle: "Connect with fellow gamers, get support, and access exclusive content.",
       joinDiscord: "Join Discord Server",
       members: "Members",
       online: "Online",
@@ -70,7 +70,7 @@ export default function DiscordPage() {
           <p className="text-xl text-purple-200 max-w-3xl mx-auto">{t.subtitle}</p>
 
           <div className="flex justify-center">
-            <Link href="https://discord.gg/YHmmkba6RK" target="_blank" rel="noopener noreferrer">
+            <Link href="https://discord.gg/purpleware" target="_blank" rel="noopener noreferrer">
               <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-md border border-purple-500/50 shadow-lg shadow-purple-600/20 hover:shadow-purple-600/30 transition-all text-lg">
                 <MessageSquare className="mr-2 h-5 w-5" />
                 {t.joinDiscord}
@@ -84,13 +84,13 @@ export default function DiscordPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Card className="bg-black/50 border border-purple-800/30 hover:border-purple-600/50 backdrop-blur-sm text-center">
             <CardContent className="p-6">
-              <div className="text-3xl font-bold text-white mb-2">2,900+</div>
+              <div className="text-3xl font-bold text-white mb-2">2,500+</div>
               <div className="text-purple-200">{t.members}</div>
             </CardContent>
           </Card>
           <Card className="bg-black/50 border border-purple-800/30 hover:border-purple-600/50 backdrop-blur-sm text-center">
             <CardContent className="p-6">
-              <div className="text-3xl font-bold text-white mb-2">200+</div>
+              <div className="text-3xl font-bold text-white mb-2">850+</div>
               <div className="text-purple-200">{t.online}</div>
             </CardContent>
           </Card>
@@ -104,9 +104,10 @@ export default function DiscordPage() {
 
         {/* Final CTA */}
         <div className="text-center py-12">
-          <Link href="https://discord.gg/YHmmkba6RK" target="_blank" rel="noopener noreferrer">
+          <Link href="https://discord.gg/purpleware" target="_blank" rel="noopener noreferrer">
             <Button className="bg-zinc-900 hover:bg-zinc-800 border border-purple-800/50 text-purple-300 hover:text-white px-8 py-3 rounded-md shadow-lg transition-all">
               <MessageSquare className="mr-2 h-5 w-5" />
+              Join Discord Now
               <ExternalLink className="ml-2 h-4 w-4" />
             </Button>
           </Link>

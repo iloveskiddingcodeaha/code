@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { MessageSquare, Mail } from "lucide-react"
+import Image from "next/image"
 
 export default function Footer() {
   return (
@@ -10,14 +11,19 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-6">
           {/* Brand */}
           <div className="space-y-3">
-            <div className="flex items-center">
+            <div className="flex items-center gap-2">
+              <Image
+                src="/images/purpleware-logo.webp"
+                alt="Purpleware Logo"
+                width={24}
+                height={24}
+                className="rounded-md"
+              />
               <span className="text-lg font-bold text-white">
                 Purpleware<span className="text-purple-400 text-xs align-top">®</span>
               </span>
             </div>
-            <p className="text-zinc-400 text-sm leading-relaxed">
-              Premium gaming tools and enhancements. Join our community and elevate your gaming experience.
-            </p>
+            <p className="text-zinc-400 text-sm leading-relaxed">Skidding and stealing code since 24</p>
           </div>
 
           {/* Game Cheats */}
@@ -40,6 +46,14 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/fortnite-cheats" className="text-zinc-400 hover:text-purple-400 transition-colors text-sm">
+                  Fortnite Cheats
+                </Link>
+              </li>
+              <li>
+                <Link href="/skid-section" className="text-zinc-400 hover:text-purple-400 transition-colors text-sm">
+                  Skid Section
+                </Link>
               </li>
             </ul>
           </div>
