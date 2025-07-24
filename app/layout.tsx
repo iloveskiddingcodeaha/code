@@ -1,5 +1,3 @@
-"use client" // <-- add this at the top ONLY if this file is converted to a client component (not needed now)
-
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
@@ -7,7 +5,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
-import AnimatedTitle from "@/components/animated-title" // ✅ You got this part right
+import AnimatedTitle from "@/components/animated-title" // ✅ Keep this
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -39,7 +37,9 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} bg-black min-h-screen antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
-          <AnimatedTitle /> {/* ✅ THIS is what you were missing */}
+          {/* ✅ Render client-side title animator here */}
+          <AnimatedTitle />
+
           <div className="flex flex-col min-h-screen">
             <Navbar />
             <main className="flex-1 container mx-auto py-8">{children}</main>
