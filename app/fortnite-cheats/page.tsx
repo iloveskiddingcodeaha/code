@@ -65,7 +65,7 @@ export default function FortniteCheats() {
   const mainCheats = [
     {
       id: 1,
-      title: `FortniteHax | Aimbot/ESP`,
+      title: `FortnitePlace ID 1 | Aimbot/ESP`,
       game: "Fortnite",
       description:
         language === "RU"
@@ -75,53 +75,6 @@ export default function FortniteCheats() {
       popular: true,
       downloadUrl: "https://lootdest.org/s?fortnitehax",
       password: "fortnite123",
-    },
-    {
-      id: 2,
-      title: `RoyaleCheat | External`,
-      game: "Fortnite",
-      description:
-        language === "RU"
-          ? `Внешний чит для Fortnite с отличными функциями безопасности. Стабильный и надежный.`
-          : `External Fortnite cheat with excellent safety features. Stable and reliable.`,
-      features: ["External", language === "RU" ? `Безопасный` : "Safe", language === "RU" ? `Визуалы` : "Visuals"],
-      popular: false,
-      downloadUrl: "https://github.com/purpleware/royalecheat.zip",
-      password: language === "RU" ? `Ничего!` : "Nothing!",
-    },
-    {
-      id: 3,
-      title: `VictoryHack | Rage`,
-      game: "Fortnite",
-      description:
-        language === "RU"
-          ? `Рейдж чит для Fortnite с мощными функциями. Получайте Victory Royale каждый раз.`
-          : `Rage cheat for Fortnite with powerful features. Get Victory Royale every time.`,
-      features: [
-        language === "RU" ? `Рейдж` : "Rage",
-        language === "RU" ? `Скорострельность` : "Rapid Fire",
-        language === "RU" ? `Телепорт` : "Teleport",
-      ],
-      popular: true,
-      downloadUrl: "https://gofile.io/d/victoryhack",
-      password: language === "RU" ? `Ничего!` : "Nothing!",
-    },
-    {
-      id: 4,
-      title: `BuildHax | Building`,
-      game: "Fortnite",
-      description:
-        language === "RU"
-          ? `Специализированный чит для строительства в Fortnite. Стройте быстрее всех.`
-          : `Specialized building cheat for Fortnite. Build faster than anyone else.`,
-      features: [
-        language === "RU" ? `Строительство` : "Building",
-        "Auto Build",
-        language === "RU" ? `Скорость` : "Speed",
-      ],
-      popular: true,
-      downloadUrl: "https://lootdest.org/s?buildhax",
-      password: language === "RU" ? `Ничего!` : "Nothing!",
     },
   ]
 
