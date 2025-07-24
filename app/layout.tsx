@@ -10,7 +10,7 @@ import AnimatedTitle from "@/components/animated-title" // ✅ Keep this
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Purpleware - Cracked cheats",
+  title: "",
   description: "Use Purpleware to cheat against losers.",
   icons: {
     icon: [

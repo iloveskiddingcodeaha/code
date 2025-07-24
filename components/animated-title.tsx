@@ -2,33 +2,63 @@
 
 import { useEffect, useState } from "react"
 
+const titles = [
+  "Purpleware - Cracked cheats",
+  "Purpleware - @hhushed was here",
+  "Purpleware - Shittest Devs Oat",
+  "Purpleware - Skidding since 24´",
+  "Purpleware - .gg/3b7pbknR3U",
+  "Purpleware - guns.lol/hushed",
+]
+
+const getNextTitle = (used: number[]) => {
+  if (used.length === titles.length) return { title: titles[0], newUsed: [0] }
+
+  let nextIndex
+  do {
+    nextIndex = Math.floor(Math.random() * titles.length)
+  } while (used.includes(nextIndex))
+
+  return { title: titles[nextIndex], newUsed: [...used, nextIndex] }
+}
+
 const AnimatedTitle = () => {
-  const fullTitle = "Purpleware - Cracked cheats"
-  const [index, setIndex] = useState(0)
+  const [text, setText] = useState("")
   const [isDeleting, setIsDeleting] = useState(false)
+  const [currentTitle, setCurrentTitle] = useState(titles[0])
+  const [index, setIndex] = useState(0)
+  const [usedIndexes, setUsedIndexes] = useState<number[]>([0])
 
   useEffect(() => {
-    const typingSpeed = isDeleting ? 75 : 150
-    const pauseTime = isDeleting ? 0 : 1000 // Pause before deleting
+    const typingSpeed = isDeleting ? 50 : 125
+    const pauseBeforeDelete = 1000
+    const pauseBeforeNext = 500
 
-    const timeout = setTimeout(() => {
-      if (!isDeleting && index < fullTitle.length) {
-        setIndex(index + 1)
-      } else if (!isDeleting && index === fullTitle.length) {
-        setIsDeleting(true)
+    const handler = setTimeout(() => {
+      if (!isDeleting && index < currentTitle.length) {
+        setText(currentTitle.slice(0, index + 1))
+        setIndex(i => i + 1)
+      } else if (!isDeleting && index === currentTitle.length) {
+        setTimeout(() => setIsDeleting(true), pauseBeforeDelete)
       } else if (isDeleting && index > 0) {
-        setIndex(index - 1)
-      } else {
+        setText(currentTitle.slice(0, index - 1))
+        setIndex(i => i - 1)
+      } else if (isDeleting && index === 0) {
         setIsDeleting(false)
+        setTimeout(() => {
+          const { title, newUsed } = getNextTitle(usedIndexes)
+          setCurrentTitle(title)
+          setUsedIndexes(newUsed)
+        }, pauseBeforeNext)
       }
-    }, index === fullTitle.length ? pauseTime : typingSpeed)
+    }, typingSpeed)
 
-    return () => clearTimeout(timeout)
-  }, [index, isDeleting])
+    return () => clearTimeout(handler)
+  }, [index, isDeleting, currentTitle, usedIndexes])
 
   useEffect(() => {
-    document.title = fullTitle.slice(0, index)
-  }, [index])
+    document.title = text
+  }, [text])
 
   return null
 }
