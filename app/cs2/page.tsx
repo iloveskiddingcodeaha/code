@@ -1,14 +1,14 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Download, Star, Lock } from "lucide-react"
+import { Check, Crown, Shield, Zap, Users } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 
-export default function CS2Cheats() {
+export default function CS2Subscription() {
   const [isLoaded, setIsLoaded] = useState(false)
   const [language, setLanguage] = useState("EN")
 
@@ -28,144 +28,123 @@ export default function CS2Cheats() {
 
   const translations = {
     EN: {
-      title: `CS2 Cheats/HVH Cheats`,
-      subtitle: `Kill everyone with our (cracked) cheats..`,
-      popularCheats: `Popular Cheats`,
-      moreCheats: `More Cheats`,
-      password: `Password`,
-      download: `Download`,
-      popular: `Popular`,
-      new: `NEW`,
-      step1: `Download the cheat using the button (duh)`,
-      step2: `Extract the files with the password we gave you`,
-      step3: `Run the loader as admin and follow the instructions (some cheats need extreme injector, grab it from our discord)`,
-      step4: `Launch CS2 and start destroying everyone`,
-      troubleHelp: `Having trouble? Hit us up on Discord and we'll help you get set up.`,
+      title: "CS2 Premium Subscription",
+      subtitle: "Unlock the full potential of Counter-Strike 2 with our premium subscription service",
+      monthlyPlan: "Monthly Plan",
+      yearlyPlan: "Yearly Plan",
+      lifetimePlan: "Lifetime Plan",
+      month: "month",
+      year: "year",
+      oneTime: "one-time",
+      mostPopular: "Most Popular",
+      bestValue: "Best Value",
+      subscribe: "Subscribe Now",
+      features: "Features",
+      support: "24/7 Support",
+      updates: "Regular Updates",
+      undetected: "Undetected",
+      premium: "Premium Features",
+      community: "Private Community",
+      configs: "Premium Configs",
+      aimbot: "Advanced Aimbot",
+      esp: "Premium ESP",
+      misc: "Misc Features",
+      skinChanger: "Skin Changer",
+      antiAim: "Anti-Aim",
+      rageBot: "Rage Bot",
+      legitBot: "Legit Bot",
+      streamProof: "Stream Proof",
+      hwid: "HWID Spoofer",
+      customization: "Full Customization",
     },
     RU: {
-      title: `Читы CS2/HVH читы`,
-      subtitle: `Убивайте всех нашими (взломанными) читами..`,
-      popularCheats: `Популярные читы`,
-      moreCheats: `Больше читов`,
-      password: `Пароль`,
-      download: `Скачать`,
-      popular: `Популярный`,
-      new: `НОВЫЙ`,
-      step1: `Скачайте чит, используя кнопку (очевидно)`,
-      step2: `Распакуйте файлы с паролем, который мы дали вам`,
-      step3: `Запустите загрузчик от имени администратора и следуйте инструкциям (некоторые читы требуют extreme injector, возьмите его из нашего discord)`,
-      step4: `Запустите CS2 и начните уничтожать всех`,
-      troubleHelp: `Проблемы? Обратитесь к нам в Discord, и мы поможем вам настроить.`,
+      title: "Премиум подписка CS2",
+      subtitle: "Раскройте весь потенциал Counter-Strike 2 с нашим премиум сервисом подписки",
+      monthlyPlan: "Месячный план",
+      yearlyPlan: "Годовой план",
+      lifetimePlan: "Пожизненный план",
+      month: "месяц",
+      year: "год",
+      oneTime: "разовый",
+      mostPopular: "Самый популярный",
+      bestValue: "Лучшая цена",
+      subscribe: "Подписаться",
+      features: "Функции",
+      support: "Поддержка 24/7",
+      updates: "Регулярные обновления",
+      undetected: "Необнаруживаемый",
+      premium: "Премиум функции",
+      community: "Приватное сообщество",
+      configs: "Премиум конфиги",
+      aimbot: "Продвинутый аимбот",
+      esp: "Премиум ESP",
+      misc: "Разные функции",
+      skinChanger: "Смена скинов",
+      antiAim: "Анти-аим",
+      rageBot: "Рейдж бот",
+      legitBot: "Легит бот",
+      streamProof: "Защита от стрима",
+      hwid: "HWID спуфер",
+      customization: "Полная настройка",
     },
   }
 
   const t = translations[language as keyof typeof translations]
 
-  // Main cheats
-  const mainCheats = [
+  const plans = [
     {
-      id: 1,
-      title: ` Nonagon | HvH`,
-      game: "CS2",
-      description:
-        language === "RU"
-          ? `Безумно хороший аимбот с настраиваемым FOV и плавностью. Имеет контроль отдачи и триггер бот, лучший для HvH.`
-          : `Crazy good aimbot with adjustable FOV and smoothness. Has recoil control and trigger bot, best for HvH.`,
-      features: ["HvH", "ESP", "Bhop"],
-      popular: true,
-      downloadUrl: "https://lootdest.org/s?syK5j8Qj",
-      password: "nonagon",
-    },
-    {
-      id: 2,
-      title: `Lightmoon | Legit/OBS-Bypass `,
-      game: "CS2",
-      description:
-        language === "RU"
-          ? `Довольно приличный чит, нужен extreme injector для использования DLL, хорош для легитного/рейдж читинга.`
-          : `Pretty decent cheat, needs extreme injector to use the DLL, good for legit/rage Cheating.`,
-      features: [
-        "ESP",
-        language === "RU" ? `Смена скинов` : "Skin Changer",
-        language === "RU" ? `Аимбот и др.` : "Aimbot ETC",
-      ],
+      name: t.monthlyPlan,
+      price: "$9.99",
+      period: t.month,
       popular: false,
-      downloadUrl:
-        "https://github.com/iloveskiddingcodeaha/Purpleware/raw/refs/heads/main/Lightmoon%20-%20Purpleware.zip",
-      password: language === "RU" ? `Ничего!` : "Nothing!",
+      features: [t.aimbot, t.esp, t.misc, t.support, t.updates, t.undetected],
     },
     {
-      id: 3,
-      title: `Aimware | Rage/semi-rage`,
-      game: "CS2",
-      description:
-        language === "RU"
-          ? `Самый мусорный взломанный чит года, все еще действительно хорош с хорошим конфигом и т.д., присоединяйтесь к серверу discord для получения дополнительной информации..`
-          : `Most trash cracked cheat of the year, still really good with a good config ETC, join discord server for more info..`,
-      features: [
-        language === "RU" ? `Триггер бот` : "Trigger Bot",
-        language === "RU" ? `Настройки задержки` : "Delay Settings",
-        language === "RU" ? `Пользовательские привязки клавиш` : "Custom Keybinds",
-      ],
+      name: t.yearlyPlan,
+      price: "$79.99",
+      period: t.year,
       popular: true,
-      downloadUrl: "https://gofile.io/d/eMOVZv",
-      password: language === "RU" ? `Ничего!` : "Nothing!",
-    },
-    {
-      id: 4,
-      title: `Xchanger | Legit`,
-      game: "CS2",
-      description:
-        language === "RU"
-          ? `Легитный чит для cs2, очень простой аимбот, смена скинов идет с читом, нужен extreme injector, скачайте из discord!`
-          : `Legit cheat for cs2, very basic and simple aimbot, Skin changer comes with the cheat, needs extreme injector, download from discord!`,
-      features: [language === "RU" ? `Аимбот` : "Aimbot", "ESP", language === "RU" ? `Визуалы` : "Visuals"],
-      popular: true,
-      downloadUrl: "https://lootdest.org/s?9xGXMiBQ",
-      password: language === "RU" ? `Ничего!` : "Nothing!",
-    },
-    {
-      id: 6,
-      title: `Osiris | External/Legit`,
-      game: "CS2",
-      description:
-        language === "RU"
-          ? `Внешний чит с хорошими функциями для легитной игры. Простой в использовании и стабильный.`
-          : `External cheat with good features for legit play. Easy to use and stable.`,
+      badge: t.mostPopular,
       features: [
-        language === "RU" ? `Внешний` : "External",
-        language === "RU" ? `Легитный аимбот` : "Legit Aimbot",
-        language === "RU" ? `Триггербот` : "Triggerbot",
+        t.aimbot,
+        t.esp,
+        t.misc,
+        t.skinChanger,
+        t.antiAim,
+        t.rageBot,
+        t.legitBot,
+        t.support,
+        t.updates,
+        t.undetected,
+        t.community,
+        t.configs,
       ],
+    },
+    {
+      name: t.lifetimePlan,
+      price: "$199.99",
+      period: t.oneTime,
       popular: false,
-      downloadUrl: "https://github.com/iloveskiddingcodeaha/Purpleware/raw/refs/heads/main/Osiris-CS2.zip",
-      password: language === "RU" ? `Ничего!` : "Nothing!",
+      badge: t.bestValue,
+      features: [
+        t.aimbot,
+        t.esp,
+        t.misc,
+        t.skinChanger,
+        t.antiAim,
+        t.rageBot,
+        t.legitBot,
+        t.streamProof,
+        t.hwid,
+        t.customization,
+        t.support,
+        t.updates,
+        t.undetected,
+        t.community,
+        t.configs,
+      ],
     },
   ]
-
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12,
-      },
-    },
-  }
 
   const fadeInVariants = {
     hidden: { opacity: 0 },
@@ -173,6 +152,19 @@ export default function CS2Cheats() {
       opacity: 1,
       transition: {
         duration: 0.6,
+      },
+    },
+  }
+
+  const cardVariants = {
+    hidden: { y: 50, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 12,
       },
     },
   }
@@ -198,7 +190,7 @@ export default function CS2Cheats() {
             ease: "easeInOut",
           }}
         >
-          <span className="text-white font-bold text-xl">CS2</span>
+          <Crown className="h-8 w-8 text-white" />
         </motion.div>
 
         <motion.h1
@@ -219,165 +211,105 @@ export default function CS2Cheats() {
         >
           {t.subtitle}
         </motion.p>
-
-        <motion.div
-          className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full -z-10 opacity-30 pointer-events-none"
-          animate={{
-            background: [
-              "radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, rgba(10, 5, 24, 0) 70%)",
-              "radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, rgba(10, 5, 24, 0) 70%)",
-              "radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, rgba(10, 5, 24, 0) 70%)",
-            ],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-        />
       </motion.div>
 
-      {/* Main Cheats Grid */}
-      <div>
-        <motion.h2
-          className="text-2xl font-bold text-purple-100 mb-6"
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          {t.popularCheats}
-        </motion.h2>
-        <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isLoaded ? "visible" : "hidden"}
-        >
-          {mainCheats.map((cheat, index) => (
-            <motion.div key={cheat.id} variants={itemVariants} whileHover={{ y: -5, transition: { duration: 0.2 } }}>
-              <Card className="bg-[#050212] border-purple-900/40 hover:border-purple-700 transition-all duration-300 h-full">
-                <motion.div
-                  className="bg-purple-900 h-24 flex items-center justify-center relative overflow-hidden"
-                  whileHover={{
-                    backgroundColor: "#6d28d9",
-                    transition: { duration: 0.3 },
-                  }}
+      {/* Pricing Plans */}
+      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {plans.map((plan, index) => (
+          <motion.div
+            key={index}
+            variants={cardVariants}
+            initial="hidden"
+            animate={isLoaded ? "visible" : "hidden"}
+            transition={{ delay: index * 0.1 }}
+            whileHover={{ y: -5, transition: { duration: 0.2 } }}
+          >
+            <Card
+              className={`relative h-full ${plan.popular ? "border-purple-500 bg-purple-900/20" : "bg-[#050212] border-purple-900/40"} hover:border-purple-700 transition-all duration-300`}
+            >
+              {plan.badge && (
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                  <Badge className="bg-purple-600 text-white px-3 py-1">{plan.badge}</Badge>
+                </div>
+              )}
+
+              <CardHeader className="text-center pb-4">
+                <CardTitle className="text-xl text-purple-100 mb-2">{plan.name}</CardTitle>
+                <div className="mb-4">
+                  <span className="text-3xl font-bold text-white">{plan.price}</span>
+                  <span className="text-purple-300 ml-1">/{plan.period}</span>
+                </div>
+                <Button
+                  className={`w-full ${plan.popular ? "bg-purple-600 hover:bg-purple-700" : "bg-zinc-900 hover:bg-zinc-800"} text-white transition-all duration-300`}
+                  asChild
                 >
-                  <div
-                    className="absolute inset-0 opacity-10"
-                    style={{
-                      backgroundImage: `
-                    linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px)
-                  `,
-                      backgroundSize: "20px 20px",
-                    }}
-                  />
-                  <span className="text-white font-bold text-xl relative z-10">CS2</span>
-                  {cheat.popular && (
-                    <motion.div
-                      className="absolute top-2 right-2"
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ delay: 0.3 + index * 0.1, type: "spring" }}
-                    >
-                      <Badge className="bg-purple-700">
-                        <Star className="h-3 w-3 mr-1" /> {t.popular}
-                      </Badge>
-                    </motion.div>
-                  )}
-                </motion.div>
-                <CardHeader>
-                  <Badge variant="outline" className="mb-2 w-fit border-purple-800/50 text-purple-200 bg-purple-900/30">
-                    {cheat.game}
-                  </Badge>
-                  <CardTitle className="text-xl text-purple-100">{cheat.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-purple-200">{cheat.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {cheat.features.map((feature, idx) => (
-                      <motion.div
-                        key={idx}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.5 + idx * 0.1 }}
-                      >
-                        <Badge variant="secondary" className="bg-purple-900/40 text-purple-100 border-purple-900/50">
-                          {feature}
-                        </Badge>
-                      </motion.div>
-                    ))}
-                  </div>
-                  <div className="flex items-center text-xs text-amber-400">
-                    <Lock className="h-3 w-3 mr-1" /> {t.password}: {cheat.password}
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Link href={cheat.downloadUrl} className="w-full" target="_blank" rel="noopener noreferrer">
-                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                      <Button className="w-full bg-zinc-900 hover:bg-zinc-800 border border-purple-800/50 text-purple-300 hover:text-white relative overflow-hidden group transition-all duration-300">
-                        <motion.span
-                          className="absolute inset-0 bg-gradient-to-r from-zinc-700/0 via-purple-800/20 to-zinc-700/0"
-                          animate={{
-                            x: ["-100%", "200%"],
-                          }}
-                          transition={{
-                            duration: 1.5,
-                            repeat: Number.POSITIVE_INFINITY,
-                            ease: "linear",
-                            repeatDelay: 0.5,
-                          }}
-                        />
-                        <span className="relative z-10 flex items-center">
-                          {t.download}{" "}
-                          <Download className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
-                        </span>
-                      </Button>
-                    </motion.div>
-                  </Link>
-                </CardFooter>
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div>
+                  <Link href="/discord">{t.subscribe}</Link>
+                </Button>
+              </CardHeader>
+
+              <CardContent>
+                <div className="space-y-3">
+                  {plan.features.map((feature, idx) => (
+                    <div key={idx} className="flex items-center text-purple-200">
+                      <Check className="h-4 w-4 text-green-400 mr-3 flex-shrink-0" />
+                      <span className="text-sm">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        ))}
       </div>
 
-      {/* Additional Info Section */}
+      {/* Features Showcase */}
       <motion.div
-        className="bg-[#050212] border border-purple-900/40 rounded-xl p-6"
+        className="bg-[#050212] border border-purple-900/40 rounded-xl p-8"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.5 }}
       >
-        <ol className="space-y-3 text-purple-200">
-          {[t.step1, t.step2, t.step3, t.step4].map((step, index) => (
-            <motion.li
-              key={index}
-              className="flex items-start"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-            >
-              <motion.span
-                className="bg-purple-900 w-6 h-6 rounded-full flex items-center justify-center text-sm mr-3 mt-0.5 flex-shrink-0"
-                whileHover={{ scale: 1.1, backgroundColor: "#6d28d9" }}
-              >
-                {index + 1}
-              </motion.span>
-              <span>{step}</span>
-            </motion.li>
-          ))}
-        </ol>
-        <motion.div
-          className="mt-4 text-purple-300 text-sm"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 1 }}
-        >
-          {t.troubleHelp}
-        </motion.div>
+        <h3 className="text-2xl font-bold text-purple-100 mb-6 text-center">{t.features}</h3>
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="text-center">
+            <Shield className="h-8 w-8 text-purple-400 mx-auto mb-3" />
+            <h4 className="text-lg font-semibold text-white mb-2">{t.undetected}</h4>
+            <p className="text-purple-200 text-sm">
+              Advanced anti-detection technology keeps you safe from VAC and other anti-cheat systems.
+            </p>
+          </div>
+          <div className="text-center">
+            <Zap className="h-8 w-8 text-purple-400 mx-auto mb-3" />
+            <h4 className="text-lg font-semibold text-white mb-2">{t.updates}</h4>
+            <p className="text-purple-200 text-sm">
+              Weekly updates ensure compatibility with the latest CS2 patches and improvements.
+            </p>
+          </div>
+          <div className="text-center">
+            <Users className="h-8 w-8 text-purple-400 mx-auto mb-3" />
+            <h4 className="text-lg font-semibold text-white mb-2">{t.community}</h4>
+            <p className="text-purple-200 text-sm">
+              Access to our private Discord community with exclusive configs and support.
+            </p>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Call to Action */}
+      <motion.div
+        className="text-center bg-purple-900/20 rounded-xl p-8 border border-purple-800/30"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.7 }}
+      >
+        <h3 className="text-2xl font-bold text-white mb-4">Ready to dominate CS2?</h3>
+        <p className="text-purple-200 mb-6 max-w-2xl mx-auto">
+          Join thousands of satisfied customers who trust Purpleware for their CS2 cheating needs. Get started today and
+          experience the difference.
+        </p>
+        <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 text-lg" asChild>
+          <Link href="/discord">Join Discord & Subscribe</Link>
+        </Button>
       </motion.div>
     </div>
   )

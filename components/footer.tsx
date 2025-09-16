@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer className="bg-black border-t border-zinc-800 mt-16">
       <div className="container mx-auto py-8">
-        <div className="grid md:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {/* Brand */}
           <div className="space-y-3">
             <div className="flex items-center gap-2">
@@ -24,38 +24,6 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-zinc-400 text-sm leading-relaxed">Skidding and stealing code since 24</p>
-          </div>
-
-          {/* Game Cheats */}
-          <div className="space-y-3">
-            <h3 className="text-white font-medium text-sm">Game Cheats</h3>
-            <ul className="space-y-1.5">
-              <li>
-                <Link href="/cs2" className="text-zinc-400 hover:text-purple-400 transition-colors text-sm">
-                  CS2 Cheats
-                </Link>
-              </li>
-              <li>
-                <Link href="/csgo-cheats" className="text-zinc-400 hover:text-purple-400 transition-colors text-sm">
-                  CSGO Cheats
-                </Link>
-              </li>
-              <li>
-                <Link href="/valorant-cheats" className="text-zinc-400 hover:text-purple-400 transition-colors text-sm">
-                  Valorant Cheats
-                </Link>
-              </li>
-              <li>
-                <Link href="/fortnite-cheats" className="text-zinc-400 hover:text-purple-400 transition-colors text-sm">
-                  Fortnite Cheats
-                </Link>
-              </li>
-              <li>
-                <Link href="/skid-section" className="text-zinc-400 hover:text-purple-400 transition-colors text-sm">
-                  Skid Section
-                </Link>
-              </li>
-            </ul>
           </div>
 
           {/* Support */}

@@ -1,232 +1,81 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu, ChevronDown, MessageSquare, Globe } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import Image from "next/image"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const [language, setLanguage] = useState("EN")
-  const [isMounted, setIsMounted] = useState(false)
-  const pathname = usePathname()
 
-  useEffect(() => {
-    setIsMounted(true)
-    const savedLanguage = localStorage.getItem("language") || "EN"
-    setLanguage(savedLanguage)
-  }, [])
-
-  const toggleLanguage = () => {
-    const newLanguage = language === "EN" ? "RU" : "EN"
-    setLanguage(newLanguage)
-    localStorage.setItem("language", newLanguage)
-    window.dispatchEvent(new CustomEvent("languageChange", { detail: newLanguage }))
-  }
-
-  const translations = {
-    EN: {
-      gameCheats: "Cheats",
-      cs2Cheats: "CS2",
-      csgoeCheats: "CSGO",
-      valorantCheats: "Valorant",
-      fortniteCheats: "Fortnite",
-      skidSection: "Skid Section",
-      discord: "Discord",
-      contact: "Contact",
-    },
-    RU: {
-      gameCheats: "Читы",
-      cs2Cheats: "CS2",
-      csgoeCheats: "CSGO",
-      valorantCheats: "Valorant",
-      fortniteCheats: "Fortnite",
-      skidSection: "Секция скидов",
-      discord: "Discord",
-      contact: "Контакты",
-    },
-  }
-
-  const t = translations[language as keyof typeof translations]
-
-  const gameLinks = [
-    { href: "/cs2", label: t.cs2Cheats, icon: "CS2" },
-    { href: "/csgo-cheats", label: t.csgoeCheats, icon: "GO" },
-    { href: "/valorant-cheats", label: t.valorantCheats, icon: "VAL" },
-    { href: "/fortnite-cheats", label: t.fortniteCheats, icon: "FN" },
-    { href: "/skid-section", label: t.skidSection, icon: "SRC" },
+  const navItems = [
+    { name: "Home", href: "/" },
+    { name: "Discord", href: "/discord" },
+    { name: "Contact", href: "/contact" },
   ]
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-purple-900/20 bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-black/90">
-      <div className="w-full px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          {/* Logo - Left Side */}
-          <div>
-            <Link href="/" className="flex items-center gap-2">
-              <Image
-                src="/images/purpleware-logo.webp"
-                alt="Purpleware Logo"
-                width={32}
-                height={32}
-                className="rounded-md"
-              />
-              <span className="text-xl font-bold text-white">
-                Purpleware<span className="text-purple-400 text-sm align-top">®</span>
-              </span>
-            </Link>
+    <nav className="bg-black/90 backdrop-blur-sm border-b border-purple-900/20 sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <Link href="/" className="flex items-center space-x-2">
+            <Image
+              src="/images/purpleware-logo.webp"
+              alt="Purpleware Logo"
+              width={32}
+              height={32}
+              className="rounded-md"
+            />
+            <span className="text-white font-bold text-xl">
+              Purpleware<span className="text-purple-400 text-sm align-top">®</span>
+            </span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-purple-200 hover:text-white transition-colors duration-200 font-medium"
+              >
+                {item.name}
+              </Link>
+            ))}
           </div>
 
-          {/* Desktop Navigation - Right Side */}
-          <div className="hidden lg:flex items-center space-x-8">
-            <Link
-              href="/"
-              className={`px-3 py-2 rounded text-white hover:text-purple-400 hover:bg-purple-900/20 transition-colors ${
-                pathname === "/" ? "bg-purple-900/30 text-purple-400" : ""
-              }`}
-            >
-              Home
-            </Link>
-
-            {/* Game Cheats Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="ghost"
-                  className="text-white hover:text-purple-400 hover:bg-purple-900/20 flex items-center space-x-1 px-3 py-2"
-                >
-                  <span>{t.gameCheats}</span>
-                  <ChevronDown className="h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-48 bg-black border-purple-900/30">
-                {gameLinks.map((link) => (
-                  <DropdownMenuItem key={link.href} asChild>
-                    <Link
-                      href={link.href}
-                      className={`flex items-center space-x-3 px-3 py-2 text-white hover:text-purple-400 hover:bg-purple-900/20 transition-colors ${
-                        pathname === link.href ? "bg-purple-900/30 text-purple-400" : ""
-                      }`}
-                    >
-                      <div className="w-5 h-5 bg-purple-600 rounded flex items-center justify-center">
-                        <span className="text-xs font-bold text-white">{link.icon}</span>
-                      </div>
-                      <span>{link.label}</span>
-                    </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            <Link
-              href="/discord"
-              className={`px-3 py-2 rounded text-white hover:text-purple-400 hover:bg-purple-900/20 transition-colors ${
-                pathname === "/discord" ? "bg-purple-900/30 text-purple-400" : ""
-              }`}
-            >
-              {t.discord}
-            </Link>
-
-            {/* Language Toggle */}
-            <Button
-              variant="ghost"
-              onClick={toggleLanguage}
-              className="text-white hover:text-purple-400 hover:bg-purple-900/20 flex items-center space-x-2 px-3 py-2"
-            >
-              <Globe className="h-4 w-4" />
-              <span>{language}</span>
-            </Button>
-          </div>
-
-          {/* Mobile Navigation */}
-          <div className="lg:hidden flex items-center space-x-2">
+          {/* Mobile menu button */}
+          <div className="md:hidden">
             <Button
               variant="ghost"
               size="sm"
-              onClick={toggleLanguage}
-              className="text-white hover:text-purple-400 hover:bg-purple-900/20 h-9 px-3"
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-purple-200 hover:text-white"
             >
-              <Globe className="h-4 w-4" />
-              <span className="ml-1">{language}</span>
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
-
-            <Sheet open={isOpen} onOpenChange={setIsOpen}>
-              <SheetTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="text-white hover:text-purple-400 hover:bg-purple-900/20 h-9 px-3"
-                >
-                  <Menu className="h-5 w-5" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-[320px] bg-black border-purple-900/30">
-                <div className="flex flex-col space-y-4 mt-8">
-                  <div className="flex items-center space-x-2 mb-6">
-                    <Image
-                      src="/images/purpleware-logo.webp"
-                      alt="Purpleware Logo"
-                      width={24}
-                      height={24}
-                      className="rounded-md"
-                    />
-                    <span className="text-xl font-bold text-white">
-                      Purpleware<span className="text-purple-400 text-sm align-top">®</span>
-                    </span>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Link
-                      href="/"
-                      onClick={() => setIsOpen(false)}
-                      className={`flex items-center px-3 py-3 rounded text-white hover:text-purple-400 hover:bg-purple-900/20 transition-colors ${
-                        pathname === "/" ? "bg-purple-900/30 text-purple-400" : ""
-                      }`}
-                    >
-                      Home
-                    </Link>
-                  </div>
-
-                  <div className="space-y-2">
-                    <h3 className="text-purple-400 font-medium text-xs uppercase tracking-wide px-3">{t.gameCheats}</h3>
-                    {gameLinks.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        onClick={() => setIsOpen(false)}
-                        className={`flex items-center space-x-3 px-3 py-3 rounded text-white hover:text-purple-400 hover:bg-purple-900/20 transition-colors ${
-                          pathname === link.href ? "bg-purple-900/30 text-purple-400" : ""
-                        }`}
-                      >
-                        <div className="w-5 h-5 bg-purple-600 rounded flex items-center justify-center">
-                          <span className="text-xs font-bold text-white">{link.icon}</span>
-                        </div>
-                        <span>{link.label}</span>
-                      </Link>
-                    ))}
-                  </div>
-
-                  <div className="space-y-2 pt-4 border-t border-purple-900/20">
-                    <Link
-                      href="/discord"
-                      onClick={() => setIsOpen(false)}
-                      className={`flex items-center space-x-3 px-3 py-3 rounded text-white hover:text-purple-400 hover:bg-purple-900/20 transition-colors ${
-                        pathname === "/discord" ? "bg-purple-900/30 text-purple-400" : ""
-                      }`}
-                    >
-                      <MessageSquare className="h-5 w-5" />
-                      <span>{t.discord}</span>
-                    </Link>
-                  </div>
-                </div>
-              </SheetContent>
-            </Sheet>
           </div>
         </div>
+
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <div className="md:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-black/95 border-t border-purple-900/20">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="block px-3 py-2 text-purple-200 hover:text-white transition-colors duration-200"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   )
