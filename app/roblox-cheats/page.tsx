@@ -3,142 +3,98 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Download, Star, Lock, Sparkles } from "lucide-react"
+import { Star, Sparkles, Eye, User } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
+import Image from "next/image"
 
 export default function RobloxCheats() {
   const [isLoaded, setIsLoaded] = useState(false)
-  const [language, setLanguage] = useState("EN")
 
   useEffect(() => {
     setIsLoaded(true)
-    const savedLanguage = localStorage.getItem("language") || "EN"
-    setLanguage(savedLanguage)
   }, [])
 
-  useEffect(() => {
-    const handleLanguageChange = (event: CustomEvent) => {
-      setLanguage(event.detail)
-    }
-    window.addEventListener("languageChange", handleLanguageChange as EventListener)
-    return () => window.removeEventListener("languageChange", handleLanguageChange as EventListener)
-  }, [])
-
-  const translations = {
-    EN: {
-      title: `Roblox Exploits & Scripts`,
-      subtitle: `Powerful exploits and scripts for Roblox games..`,
-      popularExploits: `Popular Exploits`,
-      moreExploits: `More Exploits`,
-      password: `Password`,
-      download: `Download`,
-      popular: `Popular`,
-      new: `NEW`,
-      free: `FREE`,
-      step1: `Download the exploit using the button`,
-      step2: `Extract the files with the password if required`,
-      step3: `Run the exploit as administrator`,
-      step4: `Inject into Roblox and load your scripts`,
-      troubleHelp: `Having trouble? Join our Discord for help and script sharing.`,
-    },
-    RU: {
-      title: `Эксплойты и скрипты Roblox`,
-      subtitle: `Мощные эксплойты и скрипты для игр Roblox..`,
-      popularExploits: `Популярные эксплойты`,
-      moreExploits: `Больше эксплойтов`,
-      password: `Пароль`,
-      download: `Скачать`,
-      popular: `Популярный`,
-      new: `НОВЫЙ`,
-      free: `БЕСПЛАТНО`,
-      step1: `Скачайте эксплойт, используя кнопку`,
-      step2: `Распакуйте файлы с паролем, если требуется`,
-      step3: `Запустите эксплойт от имени администратора`,
-      step4: `Инжектите в Roblox и загрузите ваши скрипты`,
-      troubleHelp: `Проблемы? Присоединяйтесь к нашему Discord за помощью и обменом скриптов.`,
-    },
-  }
-
-  const t = translations[language as keyof typeof translations]
-
-  // Main exploits
-  const mainExploits = [
+  // Main exploits/scripts
+  const mainScripts = [
     {
       id: 1,
-      title: `Synapse X | Premium`,
-      game: "Roblox",
-      description:
-        language === "RU"
-          ? `Премиум эксплойт для Roblox с продвинутыми функциями. Лучший выбор для серьезных пользователей.`
-          : `Premium Roblox exploit with advanced features. The best choice for serious users.`,
+      title: "Synapse X",
+      game: "Roblox Executor",
+      description: "Premium Roblox executor with advanced features and Level 8 execution.",
       features: ["Level 8", "Script Hub", "Premium"],
       popular: true,
-      downloadUrl: "https://lootdest.org/s?synapsex",
-      password: "synapse123",
+      slug: "synapse-x",
+      thumbnail: "/placeholder.svg?height=200&width=300&text=Synapse+X",
+      uploader: "Admin",
       isPremium: true,
     },
     {
       id: 2,
-      title: `KRNL | Free`,
-      game: "Roblox",
-      description:
-        language === "RU"
-          ? `Бесплатный эксплойт для Roblox с хорошими функциями. Отличный выбор для начинающих.`
-          : `Free Roblox exploit with good features. Great choice for beginners.`,
-      features: ["Level 7", "Free", language === "RU" ? `Стабильный` : "Stable"],
+      title: "KRNL Executor",
+      game: "Roblox Executor",
+      description: "Free Roblox executor with good stability and Level 7 execution capabilities.",
+      features: ["Level 7", "Free", "Stable"],
       popular: true,
-      downloadUrl: "https://github.com/purpleware/krnl.zip",
-      password: language === "RU" ? `Ничего!` : "Nothing!",
+      slug: "krnl-executor",
+      thumbnail: "/placeholder.svg?height=200&width=300&text=KRNL",
+      uploader: "Admin",
       isPremium: false,
     },
     {
       id: 3,
-      title: `Fluxus | Free`,
-      game: "Roblox",
-      description:
-        language === "RU"
-          ? `Бесплатный эксплойт с хорошей совместимостью. Регулярные обновления и поддержка.`
-          : `Free exploit with good compatibility. Regular updates and support.`,
-      features: ["Level 6", language === "RU" ? `Бесплатный` : "Free", language === "RU" ? `Обновления` : "Updates"],
+      title: "Arsenal Aimbot",
+      game: "Arsenal Script",
+      description: "Advanced aimbot script for Arsenal with customizable settings and ESP features.",
+      features: ["Aimbot", "ESP", "Silent Aim"],
       popular: false,
-      downloadUrl: "https://gofile.io/d/fluxus",
-      password: language === "RU" ? `Ничего!` : "Nothing!",
+      slug: "arsenal-aimbot",
+      thumbnail: "/placeholder.svg?height=200&width=300&text=Arsenal+Aimbot",
+      uploader: "Admin",
       isPremium: false,
     },
     {
       id: 4,
-      title: `Oxygen U | Free`,
-      game: "Roblox",
-      description:
-        language === "RU"
-          ? `Новый бесплатный эксплойт с современным интерфейсом. Простой в использовании.`
-          : `New free exploit with modern interface. Easy to use.`,
-      features: ["Level 7", language === "RU" ? `Современный UI` : "Modern UI", language === "RU" ? `Простой` : "Easy"],
+      title: "Blox Fruits Auto Farm",
+      game: "Blox Fruits Script",
+      description: "Complete auto farming script for Blox Fruits with quest automation and fruit collection.",
+      features: ["Auto Farm", "Quest Bot", "Fruit Finder"],
       popular: true,
-      downloadUrl: "https://lootdest.org/s?oxygenu",
-      password: language === "RU" ? `Ничего!` : "Nothing!",
+      slug: "blox-fruits-auto-farm",
+      thumbnail: "/placeholder.svg?height=200&width=300&text=Blox+Fruits",
+      uploader: "Admin",
       isPremium: false,
     },
   ]
 
-  // New exploits row
-  const newExploits = [
+  // New scripts row
+  const newScripts = [
     {
       id: 5,
-      title: `Script-Ware | Premium`,
-      game: "Roblox",
-      description:
-        language === "RU"
-          ? `Новый премиум эксплойт с отличными функциями. Получите ранний доступ!`
-          : `New premium exploit with excellent features. Get early access!`,
-      features: ["Level 8", language === "RU" ? `Премиум` : "Premium", language === "RU" ? `Новый` : "New"],
+      title: "Da Hood Silent Aim",
+      game: "Da Hood Script",
+      description: "Silent aim script for Da Hood with rage features and anti-lock bypass.",
+      features: ["Silent Aim", "Rage", "Anti-Lock"],
       popular: true,
       new: true,
-      downloadUrl: "https://lootdest.org/s?scriptware",
-      password: "scriptware123",
-      isPremium: true,
+      slug: "da-hood-silent-aim",
+      thumbnail: "/placeholder.svg?height=200&width=300&text=Da+Hood",
+      uploader: "Admin",
+      isPremium: false,
+    },
+    {
+      id: 6,
+      title: "Pet Simulator X Dupe",
+      game: "Pet Simulator X Script",
+      description: "Pet duplication script for Pet Simulator X with auto-hatch and mailbox features.",
+      features: ["Pet Dupe", "Auto Hatch", "Mailbox"],
+      popular: true,
+      new: true,
+      slug: "pet-sim-x-dupe",
+      thumbnail: "/placeholder.svg?height=200&width=300&text=Pet+Sim+X",
+      uploader: "Admin",
+      isPremium: false,
     },
   ]
 
@@ -206,7 +162,9 @@ export default function RobloxCheats() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-300 to-green-100">{t.title}</span>
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-300 to-green-100">
+            Roblox Exploits & Scripts
+          </span>
         </motion.h1>
         <motion.p
           className="text-lg text-green-200 max-w-3xl mx-auto"
@@ -214,28 +172,11 @@ export default function RobloxCheats() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
         >
-          {t.subtitle}
+          Powerful exploits and scripts for Roblox games.
         </motion.p>
-
-        <motion.div
-          className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full -z-10 opacity-30 pointer-events-none"
-          animate={{
-            background: [
-              "radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, rgba(10, 5, 24, 0) 70%)",
-              "radial-gradient(circle, rgba(34, 197, 94, 0.2) 0%, rgba(10, 5, 24, 0) 70%)",
-              "radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, rgba(10, 5, 24, 0) 70%)",
-            ],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-        />
       </motion.div>
 
-      {/* Main Exploits Grid */}
+      {/* Popular Scripts Grid */}
       <div>
         <motion.h2
           className="text-2xl font-bold text-green-100 mb-6"
@@ -243,7 +184,7 @@ export default function RobloxCheats() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          {t.popularExploits}
+          Popular Scripts
         </motion.h2>
         <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
@@ -251,107 +192,13 @@ export default function RobloxCheats() {
           initial="hidden"
           animate={isLoaded ? "visible" : "hidden"}
         >
-          {mainExploits.map((exploit, index) => (
-            <motion.div key={exploit.id} variants={itemVariants} whileHover={{ y: -5, transition: { duration: 0.2 } }}>
-              <Card className="bg-[#050212] border-green-900/40 hover:border-green-700 transition-all duration-300 h-full">
-                <motion.div
-                  className={`${exploit.isPremium ? "bg-purple-900" : "bg-green-900"} h-24 flex items-center justify-center relative overflow-hidden`}
-                  whileHover={{
-                    backgroundColor: exploit.isPremium ? "#6d28d9" : "#15803d",
-                    transition: { duration: 0.3 },
-                  }}
-                >
-                  <div
-                    className="absolute inset-0 opacity-10"
-                    style={{
-                      backgroundImage: `
-                    linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px)
-                  `,
-                      backgroundSize: "20px 20px",
-                    }}
-                  />
-                  <span className="text-white font-bold text-xl relative z-10">RBX</span>
-                  {exploit.popular && (
-                    <motion.div
-                      className="absolute top-2 right-2"
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ delay: 0.3 + index * 0.1, type: "spring" }}
-                    >
-                      <Badge className={exploit.isPremium ? "bg-purple-700" : "bg-green-700"}>
-                        <Star className="h-3 w-3 mr-1" /> {t.popular}
-                      </Badge>
-                    </motion.div>
-                  )}
-                  {!exploit.isPremium && (
-                    <motion.div
-                      className="absolute top-2 left-2"
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ delay: 0.3 + index * 0.1, type: "spring" }}
-                    >
-                      <Badge className="bg-green-600">{t.free}</Badge>
-                    </motion.div>
-                  )}
-                </motion.div>
-                <CardHeader>
-                  <Badge variant="outline" className="mb-2 w-fit border-green-800/50 text-green-200 bg-green-900/30">
-                    {exploit.game}
-                  </Badge>
-                  <CardTitle className="text-xl text-green-100">{exploit.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-green-200">{exploit.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {exploit.features.map((feature, idx) => (
-                      <motion.div
-                        key={idx}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.5 + idx * 0.1 }}
-                      >
-                        <Badge variant="secondary" className="bg-green-900/40 text-green-100 border-green-900/50">
-                          {feature}
-                        </Badge>
-                      </motion.div>
-                    ))}
-                  </div>
-                  <div className="flex items-center text-xs text-amber-400">
-                    <Lock className="h-3 w-3 mr-1" /> {t.password}: {exploit.password}
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Link href={exploit.downloadUrl} className="w-full" target="_blank" rel="noopener noreferrer">
-                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                      <Button className="w-full bg-zinc-900 hover:bg-zinc-800 border border-green-800/50 text-green-300 hover:text-white relative overflow-hidden group transition-all duration-300">
-                        <motion.span
-                          className="absolute inset-0 bg-gradient-to-r from-zinc-700/0 via-green-800/20 to-zinc-700/0"
-                          animate={{
-                            x: ["-100%", "200%"],
-                          }}
-                          transition={{
-                            duration: 1.5,
-                            repeat: Number.POSITIVE_INFINITY,
-                            ease: "linear",
-                            repeatDelay: 0.5,
-                          }}
-                        />
-                        <span className="relative z-10 flex items-center">
-                          {t.download}{" "}
-                          <Download className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
-                        </span>
-                      </Button>
-                    </motion.div>
-                  </Link>
-                </CardFooter>
-              </Card>
-            </motion.div>
+          {mainScripts.map((script, index) => (
+            <ScriptCard key={script.id} script={script} index={index} itemVariants={itemVariants} />
           ))}
         </motion.div>
       </div>
 
-      {/* New Exploits Row */}
+      {/* New Scripts Row */}
       <div>
         <motion.h2
           className="text-2xl font-bold text-green-100 mb-6"
@@ -359,7 +206,7 @@ export default function RobloxCheats() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          {t.moreExploits}
+          New Scripts
         </motion.h2>
         <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
@@ -368,103 +215,27 @@ export default function RobloxCheats() {
           animate={isLoaded ? "visible" : "hidden"}
           transition={{ delayChildren: 0.3 }}
         >
-          {newExploits.map((exploit) => (
-            <motion.div key={exploit.id} variants={itemVariants} whileHover={{ y: -5, transition: { duration: 0.2 } }}>
-              <Card className="bg-[#050212] border-green-900/40 hover:border-green-700 transition-all duration-300 h-full">
-                <motion.div
-                  className="bg-purple-800 h-24 flex items-center justify-center relative overflow-hidden"
-                  whileHover={{
-                    backgroundColor: "#6d28d9",
-                    transition: { duration: 0.3 },
-                  }}
-                >
-                  <div
-                    className="absolute inset-0 opacity-10"
-                    style={{
-                      backgroundImage: `
-                      linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px)
-                    `,
-                      backgroundSize: "20px 20px",
-                    }}
-                  />
-                  <span className="text-white font-bold text-xl relative z-10">RBX</span>
-                  <motion.div
-                    className="absolute top-2 right-2"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ delay: 0.5, type: "spring" }}
-                  >
-                    <Badge className="bg-purple-600">
-                      <Sparkles className="h-3 w-3 mr-1" /> {t.new}
-                    </Badge>
-                  </motion.div>
-                </motion.div>
-                <CardHeader>
-                  <Badge variant="outline" className="mb-2 w-fit border-green-800/50 text-green-200 bg-green-900/30">
-                    {exploit.game}
-                  </Badge>
-                  <CardTitle className="text-xl text-green-100">{exploit.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-green-200">{exploit.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {exploit.features.map((feature, idx) => (
-                      <motion.div
-                        key={idx}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.6 + idx * 0.1 }}
-                      >
-                        <Badge variant="secondary" className="bg-green-900/40 text-green-100 border-green-900/50">
-                          {feature}
-                        </Badge>
-                      </motion.div>
-                    ))}
-                  </div>
-                  <div className="flex items-center text-xs text-amber-400">
-                    <Lock className="h-3 w-3 mr-1" /> {t.password}: {exploit.password}
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Link href={exploit.downloadUrl} className="w-full" target="_blank" rel="noopener noreferrer">
-                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                      <Button className="w-full bg-zinc-900 hover:bg-zinc-800 border border-green-800/50 text-green-300 hover:text-white relative overflow-hidden group transition-all duration-300">
-                        <motion.span
-                          className="absolute inset-0 bg-gradient-to-r from-zinc-700/0 via-green-800/20 to-zinc-700/0"
-                          animate={{
-                            x: ["-100%", "200%"],
-                          }}
-                          transition={{
-                            duration: 1.5,
-                            repeat: Number.POSITIVE_INFINITY,
-                            ease: "linear",
-                            repeatDelay: 0.5,
-                          }}
-                        />
-                        <span className="relative z-10 flex items-center">
-                          {t.download}{" "}
-                          <Download className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
-                        </span>
-                      </Button>
-                    </motion.div>
-                  </Link>
-                </CardFooter>
-              </Card>
-            </motion.div>
+          {newScripts.map((script) => (
+            <ScriptCard key={script.id} script={script} index={0} itemVariants={itemVariants} isNew />
           ))}
         </motion.div>
       </div>
 
-      {/* Additional Info Section */}
+      {/* Instructions Section */}
       <motion.div
         className="bg-[#050212] border border-green-900/40 rounded-xl p-6"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.5 }}
       >
+        <h3 className="text-xl font-semibold text-green-100 mb-4">How to use scripts</h3>
         <ol className="space-y-3 text-green-200">
-          {[t.step1, t.step2, t.step3, t.step4].map((step, index) => (
+          {[
+            "Click on any script to view details and download",
+            "Download your preferred executor (KRNL, Synapse X, etc.)",
+            "Run the executor as administrator",
+            "Inject into Roblox and paste the script",
+          ].map((step, index) => (
             <motion.li
               key={index}
               className="flex items-start"
@@ -472,12 +243,9 @@ export default function RobloxCheats() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
             >
-              <motion.span
-                className="bg-green-900 w-6 h-6 rounded-full flex items-center justify-center text-sm mr-3 mt-0.5 flex-shrink-0"
-                whileHover={{ scale: 1.1, backgroundColor: "#15803d" }}
-              >
+              <span className="bg-green-900 w-6 h-6 rounded-full flex items-center justify-center text-sm mr-3 mt-0.5 flex-shrink-0">
                 {index + 1}
-              </motion.span>
+              </span>
               <span>{step}</span>
             </motion.li>
           ))}
@@ -488,9 +256,92 @@ export default function RobloxCheats() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1 }}
         >
-          {t.troubleHelp}
+          Need help? Join our Discord for support and script sharing.
         </motion.div>
       </motion.div>
     </div>
+  )
+}
+
+function ScriptCard({
+  script,
+  index,
+  itemVariants,
+  isNew = false,
+}: {
+  script: any
+  index: number
+  itemVariants: any
+  isNew?: boolean
+}) {
+  return (
+    <motion.div variants={itemVariants} whileHover={{ y: -5, transition: { duration: 0.2 } }}>
+      <Card className="bg-[#050212] border-green-900/40 hover:border-green-700 transition-all duration-300 h-full overflow-hidden">
+        {/* Thumbnail */}
+        <div className="relative h-48 overflow-hidden">
+          <Image
+            src={script.thumbnail || "/placeholder.svg"}
+            alt={script.title}
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+
+          {/* Badges */}
+          <div className="absolute top-2 right-2 flex gap-2">
+            {script.popular && (
+              <Badge className={script.isPremium ? "bg-purple-700" : "bg-green-700"}>
+                <Star className="h-3 w-3 mr-1" /> Popular
+              </Badge>
+            )}
+            {isNew && (
+              <Badge className="bg-blue-600">
+                <Sparkles className="h-3 w-3 mr-1" /> NEW
+              </Badge>
+            )}
+            {!script.isPremium && <Badge className="bg-green-600">FREE</Badge>}
+          </div>
+
+          {/* Stats overlay - Remove downloads */}
+          <div className="absolute bottom-2 left-2 flex items-center gap-3 text-white text-sm">
+            <div className="flex items-center gap-1">
+              <User className="h-3 w-3" />
+              <span>{script.uploader}</span>
+            </div>
+          </div>
+        </div>
+
+        <CardHeader className="pb-3">
+          <Badge variant="outline" className="mb-2 w-fit border-green-800/50 text-green-200 bg-green-900/30">
+            {script.game}
+          </Badge>
+          <CardTitle className="text-lg text-green-100">{script.title}</CardTitle>
+        </CardHeader>
+
+        <CardContent className="space-y-3 pb-3">
+          <p className="text-green-200 text-sm line-clamp-2">{script.description}</p>
+          <div className="flex flex-wrap gap-1">
+            {script.features.slice(0, 3).map((feature: string, idx: number) => (
+              <Badge
+                key={idx}
+                variant="secondary"
+                className="bg-green-900/40 text-green-100 border-green-900/50 text-xs"
+              >
+                {feature}
+              </Badge>
+            ))}
+          </div>
+        </CardContent>
+
+        <CardFooter className="pt-0">
+          <Link href={`/roblox-cheats/${script.slug}`} className="w-full">
+            <Button className="w-full bg-zinc-900 hover:bg-zinc-800 border border-green-800/50 text-green-300 hover:text-white transition-all duration-300 group">
+              <Eye className="mr-2 h-4 w-4" />
+              View Script
+            </Button>
+          </Link>
+        </CardFooter>
+      </Card>
+    </motion.div>
   )
 }
