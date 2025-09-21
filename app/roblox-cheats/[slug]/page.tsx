@@ -12,37 +12,36 @@ import { useParams } from "next/navigation"
 
 // Mock data - in a real app, this would come from a database
 const scriptsData = {
-  "synapse-x": {
+  "Solara": {
     id: 1,
-    title: "Synapse X",
+    title: "Solara Executor",
     game: "Roblox Executor",
     description:
-      "Synapse X is the premier Roblox executor, offering unparalleled script execution capabilities with Level 8 access. This premium tool provides advanced features including a built-in script hub, custom DLL injection, and superior stability. Perfect for serious scripters who demand the best performance and reliability.",
-    longDescription: `Synapse X stands as the gold standard in Roblox script execution. With its Level 8 execution capabilities, you can run even the most complex scripts without limitations. 
+      "Solara is a powerful Roblox executor offering advanced script execution capabilities. This reliable tool provides excellent features including script execution, user-friendly interface, and superior stability. Perfect for scripters who demand quality and performance.",
+    longDescription: `Solara stands as a reliable choice in Roblox script execution. With its advanced execution capabilities, you can run complex scripts with confidence.
 
 Key Features:
-• Level 8 script execution - Run any script without restrictions
-• Built-in script hub with hundreds of verified scripts
-• Advanced debugging tools and error handling
-• Custom DLL injection for maximum compatibility
+• Advanced script execution - Run scripts without restrictions
+• User-friendly interface designed for ease of use
+• Excellent stability and performance
 • Regular updates to maintain compatibility with Roblox updates
-• Premium support from our development team
+• Active community support
+• Free to use with premium features
 
-This executor is perfect for advanced users who need reliable, powerful script execution. Whether you're running complex game scripts or developing your own, Synapse X provides the tools you need.`,
-    features: ["Level 8 Execution", "Script Hub", "Premium Support", "DLL Injection", "Advanced Debugging"],
-    thumbnail: "/placeholder.svg?height=400&width=600&text=Synapse+X+Screenshot",
+This executor is perfect for users who need reliable, powerful script execution. Whether you're running game scripts or developing your own, Solara provides the tools you need.`,
+    features: ["Advanced Execution", "User Friendly", "Free", "Regular Updates", "Community Support"],
+    thumbnail: "/images/solara-logo.png",
     uploader: "Admin",
     uploadDate: "2024-01-15",
     downloads: 15420,
     rating: 4.8,
-    isPremium: true,
-    downloadUrl: "https://example.com/synapse-x-download",
-    fileSize: "12.5 MB",
-    version: "v3.0.5b",
+    downloadUrl: "https://work.ink/24HL/tgkej0ta",
+    fileSize: "8.3 MB",
+    version: "v2.1.4",
     requirements: ["Windows 10/11", "Roblox Client", ".NET Framework 4.8"],
     screenshots: [
-      "/placeholder.svg?height=300&width=500&text=Synapse+X+Interface",
-      "/placeholder.svg?height=300&width=500&text=Script+Hub",
+      "/placeholder.svg?height=300&width=500&text=Solara+Interface",
+      "/placeholder.svg?height=300&width=500&text=Script+Editor",
       "/placeholder.svg?height=300&width=500&text=Execution+Panel",
     ],
   },
@@ -69,7 +68,6 @@ KRNL is ideal for users who want a reliable executor without the premium price t
     uploadDate: "2024-01-20",
     downloads: 28350,
     rating: 4.6,
-    isPremium: false,
     downloadUrl: "https://example.com/krnl-download",
     fileSize: "8.2 MB",
     version: "v2.4.1",
@@ -80,30 +78,25 @@ KRNL is ideal for users who want a reliable executor without the premium price t
       "/placeholder.svg?height=300&width=500&text=Settings+Panel",
     ],
   },
-  "arsenal-aimbot": {
+  "FischScript": {
     id: 3,
-    title: "Arsenal Aimbot",
-    game: "Arsenal Script",
+    title: "Fisch Script",
+    game: "Fisch Script",
     description:
-      "Advanced aimbot script for Arsenal featuring customizable settings, ESP, and silent aim capabilities. Dominate the battlefield with precision targeting and enhanced visual information.",
-    longDescription: `This Arsenal aimbot script provides everything you need to dominate in Arsenal matches. With advanced targeting algorithms and customizable settings, you can fine-tune your gameplay experience.
+      "Good overall Fisch Script, undetected from the new anti-cheat update.",
+    longDescription: `Good overall Fisch Script, undetected from the new anti-cheat update..
 
 Features:
-• Advanced aimbot with customizable FOV and smoothness
-• ESP (Extra Sensory Perception) to see enemies through walls
-• Silent aim for undetectable targeting
-• Customizable keybinds and settings
-• Anti-detection measures built-in
-• Works with all Arsenal game modes
+• Good at fisching
+• Im not bothered writing more
 
-Perfect for players who want to improve their Arsenal performance and climb the leaderboards. The script is regularly updated to maintain compatibility with Arsenal updates.`,
-    features: ["Aimbot", "ESP", "Silent Aim", "Customizable", "Anti-Detection"],
+`,
+    features: ["Auto-fisch, Teleport, More"],
     thumbnail: "/placeholder.svg?height=400&width=600&text=Arsenal+Aimbot+Preview",
     uploader: "Admin",
     uploadDate: "2024-01-18",
     downloads: 8920,
     rating: 4.4,
-    isPremium: false,
     downloadUrl: "https://example.com/arsenal-aimbot-script",
     fileSize: "2.1 MB",
     version: "v1.8.3",
@@ -138,7 +131,6 @@ Whether you're a new player looking to level up quickly or a veteran grinding fo
     uploadDate: "2024-01-22",
     downloads: 45230,
     rating: 4.9,
-    isPremium: false,
     downloadUrl: "https://example.com/blox-fruits-script",
     fileSize: "5.7 MB",
     version: "v4.2.1",
@@ -172,7 +164,6 @@ Perfect for players who want to excel in Da Hood's competitive PvP environment. 
     uploadDate: "2024-01-25",
     downloads: 12450,
     rating: 4.5,
-    isPremium: false,
     downloadUrl: "https://example.com/da-hood-script",
     fileSize: "3.4 MB",
     version: "v2.1.0",
@@ -207,7 +198,6 @@ Whether you're looking to duplicate rare pets or automate the grinding process, 
     uploadDate: "2024-01-28",
     downloads: 23180,
     rating: 4.7,
-    isPremium: false,
     downloadUrl: "https://example.com/pet-sim-x-script",
     fileSize: "4.1 MB",
     version: "v3.5.2",
@@ -236,7 +226,7 @@ export default function ScriptDetailPage() {
       <div className="container mx-auto px-4 py-12 text-center">
         <h1 className="text-2xl font-bold text-white mb-4">Script Not Found</h1>
         <Link href="/roblox-cheats">
-          <Button className="bg-green-600 hover:bg-green-700">
+          <Button className="bg-purple-600 hover:bg-purple-700">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Scripts
           </Button>
@@ -249,7 +239,7 @@ export default function ScriptDetailPage() {
     <div className="container mx-auto px-4 py-8 space-y-8">
       {/* Back Button */}
       <Link href="/roblox-cheats">
-        <Button variant="ghost" className="text-green-400 hover:text-green-300 hover:bg-green-900/20">
+        <Button variant="ghost" className="text-purple-400 hover:text-purple-300 hover:bg-purple-900/20">
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to Scripts
         </Button>
@@ -262,15 +252,14 @@ export default function ScriptDetailPage() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <div className="flex items-start justify-between mb-4">
               <div>
-                <Badge className="mb-2 bg-green-600">{script.game}</Badge>
+                <Badge className="mb-2 bg-purple-600">{script.game}</Badge>
                 <h1 className="text-3xl font-bold text-white mb-2">{script.title}</h1>
-                <p className="text-green-200 text-lg">{script.description}</p>
+                <p className="text-purple-200 text-lg">{script.description}</p>
               </div>
-              {script.isPremium && <Badge className="bg-purple-600 text-white">Premium</Badge>}
             </div>
 
             {/* Stats */}
-            <div className="flex items-center gap-6 text-sm text-green-300">
+            <div className="flex items-center gap-6 text-sm text-purple-300">
               <div className="flex items-center gap-1">
                 <User className="h-4 w-4" />
                 <span>By {script.uploader}</span>
@@ -305,7 +294,11 @@ export default function ScriptDetailPage() {
             <h3 className="text-xl font-semibold text-white mb-3">Features</h3>
             <div className="flex flex-wrap gap-2">
               {script.features.map((feature, index) => (
-                <Badge key={index} variant="secondary" className="bg-green-900/40 text-green-100 border-green-900/50">
+                <Badge
+                  key={index}
+                  variant="secondary"
+                  className="bg-purple-900/40 text-purple-100 border-purple-900/50"
+                >
                   {feature}
                 </Badge>
               ))}
@@ -319,7 +312,7 @@ export default function ScriptDetailPage() {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <h3 className="text-xl font-semibold text-white mb-3">Description</h3>
-            <div className="text-green-200 whitespace-pre-line leading-relaxed">{script.longDescription}</div>
+            <div className="text-purple-200 whitespace-pre-line leading-relaxed">{script.longDescription}</div>
           </motion.div>
         </div>
 
@@ -331,9 +324,9 @@ export default function ScriptDetailPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <Card className="bg-[#050212] border-green-900/40">
+            <Card className="bg-[#050212] border-purple-900/40">
               <CardHeader>
-                <CardTitle className="text-green-100 flex items-center gap-2">
+                <CardTitle className="text-purple-100 flex items-center gap-2">
                   <Download className="h-5 w-5" />
                   Download
                 </CardTitle>
@@ -341,17 +334,17 @@ export default function ScriptDetailPage() {
               <CardContent className="space-y-4">
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-green-300">Version:</span>
+                    <span className="text-purple-300">Version:</span>
                     <span className="text-white">{script.version}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-green-300">File Size:</span>
+                    <span className="text-purple-300">File Size:</span>
                     <span className="text-white">{script.fileSize}</span>
                   </div>
                 </div>
 
                 <Link href={script.downloadUrl} target="_blank" rel="noopener noreferrer">
-                  <Button className="w-full bg-green-600 hover:bg-green-700 text-white">
+                  <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white">
                     <Download className="mr-2 h-4 w-4" />
                     Download Now
                   </Button>

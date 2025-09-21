@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Download, Shield, Zap, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import Image from "next/image"
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -17,17 +18,18 @@ export default function Home() {
   const gameCategories = [
     {
       name: "CS2",
-      description: "Premium subscription service for Counter-Strike 2 with exclusive features",
+      description: "A new and up coming cheat made by purpleware developers, soon to be finished.",
       href: "/cs2",
-      icon: <span className="text-white font-bold text-sm">CS2</span>,
+      logo: "/images/cs2-logo.png",
       isSubscription: true,
     },
     {
       name: "Roblox",
-      description: "Free and premium Roblox exploits and scripts",
+      description: "Scripts and executors that are free to use.",
       href: "/roblox-cheats",
-      icon: <span className="text-white font-bold text-sm">RBX</span>,
+      logo: "/images/roblox-logo.png",
       isSubscription: false,
+      customColor: "purple",
     },
   ]
 
@@ -50,7 +52,7 @@ export default function Home() {
               </span>
             </h1>
 
-            <p className="text-xl text-purple-200 mb-8 max-w-2xl mx-auto">We skid so you dont.</p>
+            <p className="text-xl text-purple-200 mb-8 max-w-2xl mx-auto">A new era.</p>
 
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="/discord">
@@ -66,9 +68,9 @@ export default function Home() {
         <section>
           <div className="text-center mb-10">
             <h2 className="text-2xl font-bold mb-3 bg-gradient-to-r from-white to-purple-300 bg-clip-text text-transparent">
-              Premium Gaming Tools
+              What we provide.
             </h2>
-            <p className="text-purple-200 max-w-2xl mx-auto">Quality tools for your favorite games.</p>
+            <p className="text-purple-200 max-w-2xl mx-auto">Scripts and cheats for all your games.</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -77,9 +79,16 @@ export default function Home() {
                 <Card className="bg-black/50 border border-purple-800/30 hover:border-purple-600/50 backdrop-blur-sm h-full transition-all hover:bg-purple-900/10 hover:shadow-lg hover:shadow-purple-600/10">
                   <CardContent className="p-6">
                     <div
-                      className={`${game.isSubscription ? "bg-purple-600" : "bg-green-600"} w-12 h-12 rounded-md flex items-center justify-center mb-4 group-hover:${game.isSubscription ? "bg-purple-500" : "bg-green-500"} transition-colors shadow-lg`}
+                      className={`${game.customColor === "purple" ? "bg-purple-600" : game.isSubscription ? "bg-purple-600" : "bg-green-600"} w-16 h-12 rounded-md flex items-center justify-center mb-4 group-hover:${game.customColor === "purple" ? "bg-purple-500" : game.isSubscription ? "bg-purple-500" : "bg-green-500"} transition-colors shadow-lg p-2`}
                     >
-                      {game.icon}
+                      <Image
+                        src={game.logo || "/placeholder.svg"}
+                        alt={`${game.name} Logo`}
+                        width={60}
+                        height={30}
+                        className="object-contain filter brightness-0 invert"
+                        style={{ maxWidth: "100%", maxHeight: "100%" }}
+                      />
                     </div>
                     <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-purple-300 transition-colors">
                       {game.name}

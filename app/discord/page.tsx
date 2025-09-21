@@ -70,7 +70,7 @@ export default function DiscordPage() {
           <p className="text-xl text-purple-200 max-w-3xl mx-auto">{t.subtitle}</p>
 
           <div className="flex justify-center">
-            <Link href="https://discord.gg/3b7pbknR3U" target="_blank" rel="noopener noreferrer">
+            <Link href="https://discord.gg/tqYF5aybnq" target="_blank" rel="noopener noreferrer">
               <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-md border border-purple-500/50 shadow-lg shadow-purple-600/20 hover:shadow-purple-600/30 transition-all text-lg">
                 <MessageSquare className="mr-2 h-5 w-5" />
                 {t.joinDiscord}
@@ -104,7 +104,7 @@ export default function DiscordPage() {
 
         {/* Final CTA */}
         <div className="text-center py-12">
-          <Link href="https://discord.gg/3b7pbknR3U" target="_blank" rel="noopener noreferrer">
+          <Link href="https://discord.gg/tqYF5aybnq" target="_blank" rel="noopener noreferrer">
             <Button className="bg-zinc-900 hover:bg-zinc-800 border border-purple-800/50 text-purple-300 hover:text-white px-8 py-3 rounded-md shadow-lg transition-all">
               <MessageSquare className="mr-2 h-5 w-5" />
               Join Discord Now
