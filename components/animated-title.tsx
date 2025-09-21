@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react"
 
 const titles = [
-
+  "Purpleware - cheats",
+  "Purpleware - @hhushed was here",
 ]
 
 const getNextTitle = (used: number[]) => {
