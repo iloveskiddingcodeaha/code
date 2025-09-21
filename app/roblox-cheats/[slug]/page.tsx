@@ -126,7 +126,7 @@ Complete Feature Set:
 
 Whether you're a new player looking to level up quickly or a veteran grinding for end-game content, this script provides everything you need to maximize your Blox Fruits experience.`,
     features: ["Auto Farm", "Quest Bot", "Fruit Finder", "Auto Stats", "Teleportation"],
-    thumbnail: "/images/blox-fruits.webp",
+    thumbnail: "/images/blox-fruits-game-logo-npygzghjgcfk6h0d.webp",
     uploader: "Admin",
     uploadDate: "2024-01-22",
     downloads: 45230,

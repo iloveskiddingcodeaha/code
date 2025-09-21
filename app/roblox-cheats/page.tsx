@@ -35,7 +35,7 @@ export default function RobloxCheats() {
       description: "Complete auto farming script for Blox Fruits with quest automation and fruit collection.",
       features: ["Auto Farm", "Quest Bot", "Fruit Finder"],
       slug: "blox-fruits-auto-farm",
-      thumbnail: "/images/blox-fruits.webp",
+      thumbnail: "/images/blox-fruits-game-logo-npygzghjgcfk6h0d.webp",
       uploader: "Admin",
     },
     {
