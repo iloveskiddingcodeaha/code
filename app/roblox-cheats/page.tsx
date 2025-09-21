@@ -25,7 +25,7 @@ export default function RobloxCheats() {
       description: "Script for fisch, really goood for auto-farming and staying undeteced.",
       features: ["Auto-Fisch", "Teleport", "Dupe"],
       slug: "FischScript",
-      thumbnail: "/placeholder.svg?height=200&width=300&text=Arsenal+Aimbot",
+      thumbnail: "/images/asdasdas.png",
       uploader: "Admin",
     },
     {
