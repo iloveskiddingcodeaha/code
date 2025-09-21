@@ -3,12 +3,7 @@
 import { useEffect, useState } from "react"
 
 const titles = [
-  "Purpleware - Cracked cheats",
-  "Purpleware - @hhushed was here",
-  "Purpleware - Shittest Devs Oat",
-  "Purpleware - Skidding since 24´",
-  "Purpleware - .gg/3b7pbknR3U",
-  "Purpleware - guns.lol/hushed",
+
 ]
 
 const getNextTitle = (used: number[]) => {
