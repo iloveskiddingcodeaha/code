@@ -141,33 +141,34 @@ Whether you're a new player looking to level up quickly or a veteran grinding fo
       "/placeholder.svg?height=300&width=500&text=Fruit+Collection",
     ],
   },
-  "da-hood-silent-aim": {
+  "99-nights-script": {
     id: 5,
-    title: "Da Hood Silent Aim",
-    game: "Da Hood Script",
+    title: "99 Nights In The Forest",
+    game: "99 Nights In The Forest",
     description:
-      "Advanced silent aim script for Da Hood with rage features and anti-lock bypass. Dominate PvP encounters with undetectable targeting and enhanced combat features.",
-    longDescription: `This Da Hood script is designed for serious PvP players who want to dominate the streets. With advanced silent aim technology and rage features, you'll have a significant advantage in combat.
+      "99 Nights In The Forest, best script and is keyless has almost all the fetures.",
+    longDescription: `99 Nights In The Forest, best script and is keyless has almost all the fetures.
 
 Advanced Features:
-• Silent aim with customizable targeting
-• Rage mode for maximum damage output
-• Anti-lock bypass to counter enemy scripts
-• Customizable keybinds and settings
-• ESP to track enemies and items
-• Anti-detection and security measures
+• Auto farm
+• Auto Fuel
+• Kill aura, chop tree down aura
+• Teleports
+• Get all kids
+• And much more!
 
-Perfect for players who want to excel in Da Hood's competitive PvP environment. The script is optimized for performance and regularly updated for compatibility.`,
-    features: ["Silent Aim", "Rage Mode", "Anti-Lock", "ESP", "PvP Optimized"],
-    thumbnail: "/placeholder.svg?height=400&width=600&text=Da+Hood+Silent+Aim",
+
+`,
+    features: ["Auto-farm, Kill aura, Auto-win"],
+    thumbnail: "/images/99.png",
     uploader: "Admin",
     uploadDate: "2024-01-25",
     downloads: 12450,
     rating: 4.5,
-    downloadUrl: "https://example.com/da-hood-script",
+    downloadUrl: "https://workink.net/24HL/6larglab",
     fileSize: "3.4 MB",
     version: "v2.1.0",
-    requirements: ["Level 6+ Executor", "Da Hood Game"],
+    requirements: ["Nothing"],
     screenshots: [
       "/placeholder.svg?height=300&width=500&text=Silent+Aim+Settings",
       "/placeholder.svg?height=300&width=500&text=Rage+Features",

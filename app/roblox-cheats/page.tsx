@@ -40,12 +40,12 @@ export default function RobloxCheats() {
     },
     {
       id: 5,
-      title: "Da Hood Silent Aim",
-      game: "Da Hood Script",
-      description: "Silent aim script for Da Hood with rage features and anti-lock bypass.",
-      features: ["Silent Aim", "Rage", "Anti-Lock"],
-      slug: "da-hood-silent-aim",
-      thumbnail: "/placeholder.svg?height=200&width=300&text=Da+Hood",
+      title: "99 Nights In The Forest Script",
+      game: "99 Nights In The Forest",
+      description: "Best script that is keyless for 99 nights in the Forest",
+      features: ["Auto-farm", "Auto-fuel", "Bring all"],
+      slug: "99-nights-script",
+      thumbnail: "/images/99.png",
       uploader: "Admin",
     },
     {
