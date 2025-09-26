@@ -11,6 +11,7 @@ export default function Navbar() {
 
   const navItems = [
     { name: "Home", href: "/" },
+    { name: "Script Hub", href: "/script-hub" },
     { name: "Discord", href: "/discord" },
     { name: "Contact", href: "/contact" },
   ]

@@ -12,7 +12,7 @@ import { useParams } from "next/navigation"
 
 // Mock data - in a real app, this would come from a database
 const scriptsData = {
-  "Solara": {
+  Solara: {
     id: 1,
     title: "Solara Executor",
     game: "Roblox Executor",
@@ -78,21 +78,22 @@ KRNL is ideal for users who want a reliable executor without the premium price t
       "/placeholder.svg?height=300&width=500&text=Settings+Panel",
     ],
   },
-  "FischScript": {
+  FischScript: {
     id: 3,
     title: "Fisch Script",
     game: "Fisch Script",
-    description:
-      "Good overall Fisch Script, undetected from the new anti-cheat update.",
-    longDescription: `Good overall Fisch Script, undetected from the new anti-cheat update..
+    description: "Good overall Fisch Script, undetected from the new anti-cheat update.",
+    longDescription: `Good overall Fisch Script, undetected from the new anti-cheat update.
 
 Features:
-• Good at fisching
-• Im not bothered writing more
+• Good at fishing
+• Auto-farm capabilities
+• Teleportation features
+• Undetected by anti-cheat systems
 
-`,
-    features: ["Auto-fisch, Teleport, More"],
-    thumbnail: "/images/asdasdas.png",
+This script is perfect for players who want to automate their fishing experience in Roblox games. It includes advanced features while maintaining safety from detection systems.`,
+    features: ["Auto-Fish", "Teleport", "Anti-Detection"],
+    thumbnail: "/placeholder.svg?height=400&width=600&text=Fisch+Script",
     uploader: "Admin",
     uploadDate: "2024-01-18",
     downloads: 8920,
@@ -100,11 +101,11 @@ Features:
     downloadUrl: "https://workink.net/24HL/lpbc7qox",
     fileSize: "2.1 MB",
     version: "v1.8.3",
-    requirements: ["Any Roblox Executor", "Arsenal Game"],
+    requirements: ["Any Roblox Executor", "Fisch Game"],
     screenshots: [
-      "/placeholder.svg?height=300&width=500&text=Aimbot+Settings",
-      "/placeholder.svg?height=300&width=500&text=ESP+Preview",
-      "/placeholder.svg?height=300&width=500&text=In-Game+Usage",
+      "/placeholder.svg?height=300&width=500&text=Auto+Fish+Interface",
+      "/placeholder.svg?height=300&width=500&text=Teleport+Menu",
+      "/placeholder.svg?height=300&width=500&text=Settings+Panel",
     ],
   },
   "blox-fruits-auto-farm": {
@@ -126,7 +127,7 @@ Complete Feature Set:
 
 Whether you're a new player looking to level up quickly or a veteran grinding for end-game content, this script provides everything you need to maximize your Blox Fruits experience.`,
     features: ["Auto Farm", "Quest Bot", "Fruit Finder", "Auto Stats", "Teleportation"],
-    thumbnail: "/images/blox-fruits-game-logo-npygzghjgcfk6h0d.webp",
+    thumbnail: "/placeholder.svg?height=400&width=600&text=Blox+Fruits+Script",
     uploader: "Admin",
     uploadDate: "2024-01-22",
     downloads: 45230,
@@ -145,22 +146,21 @@ Whether you're a new player looking to level up quickly or a veteran grinding fo
     id: 5,
     title: "99 Nights In The Forest",
     game: "99 Nights In The Forest",
-    description:
-      "99 Nights In The Forest, best script and is keyless has almost all the fetures.",
-    longDescription: `99 Nights In The Forest, best script and is keyless has almost all the fetures.
+    description: "99 Nights In The Forest, best script and is keyless has almost all the features.",
+    longDescription: `99 Nights In The Forest, best script and is keyless has almost all the features.
 
 Advanced Features:
-• Auto farm
-• Auto Fuel
-• Kill aura, chop tree down aura
-• Teleports
-• Get all kids
+• Auto farm resources
+• Auto fuel collection
+• Kill aura for protection
+• Chop tree down aura for efficiency
+• Teleports to key locations
+• Get all kids feature
 • And much more!
 
-
-`,
-    features: ["Auto-farm, Kill aura, Auto-win"],
-    thumbnail: "/images/99.png",
+This script provides comprehensive automation for the 99 Nights In The Forest game, making survival much easier and more efficient.`,
+    features: ["Auto-Farm", "Kill Aura", "Auto-Win"],
+    thumbnail: "/placeholder.svg?height=400&width=600&text=99+Nights+Script",
     uploader: "Admin",
     uploadDate: "2024-01-25",
     downloads: 12450,
@@ -168,11 +168,11 @@ Advanced Features:
     downloadUrl: "https://workink.net/24HL/6larglab",
     fileSize: "3.4 MB",
     version: "v2.1.0",
-    requirements: ["Nothing"],
+    requirements: ["Any Roblox Executor"],
     screenshots: [
-      "/placeholder.svg?height=300&width=500&text=Silent+Aim+Settings",
-      "/placeholder.svg?height=300&width=500&text=Rage+Features",
-      "/placeholder.svg?height=300&width=500&text=Combat+Interface",
+      "/placeholder.svg?height=300&width=500&text=Auto+Farm+Interface",
+      "/placeholder.svg?height=300&width=500&text=Combat+Features",
+      "/placeholder.svg?height=300&width=500&text=Teleport+Menu",
     ],
   },
   "pet-sim-x-dupe": {
