@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Key, ExternalLink, ArrowLeft } from "lucide-react"
+import { Key, ExternalLink, ArrowLeft, Shield, Clock, Users } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
@@ -30,7 +30,7 @@ export default function GetKey() {
   }
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-gradient-to-br from-purple-950 via-gray-900 to-purple-950">
       <div className="container mx-auto px-4 py-16">
         {/* Back Button */}
         <motion.div
@@ -40,7 +40,7 @@ export default function GetKey() {
           transition={{ duration: 0.5 }}
         >
           <Link href="/script-hub">
-            <Button variant="ghost" className="text-gray-400 hover:text-white hover:bg-gray-900">
+            <Button variant="ghost" className="text-purple-300 hover:text-white hover:bg-purple-900/50">
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back to Script Hub
             </Button>
@@ -54,12 +54,27 @@ export default function GetKey() {
           animate={isLoaded ? "visible" : "hidden"}
           variants={fadeInVariants}
         >
+          <motion.div
+            className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full mb-6"
+            animate={{
+              scale: [1, 1.05, 1],
+              rotate: [0, 5, -5, 0],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "easeInOut",
+            }}
+          >
+            <Key className="text-black h-10 w-10" />
+          </motion.div>
+
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-500 bg-clip-text text-transparent">
               Get Key
             </span>
           </h1>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">Get your access key to unlock premium features</p>
+          <p className="text-xl text-purple-200 max-w-2xl mx-auto">Get your access key to unlock premium features</p>
         </motion.div>
 
         {/* Main Card */}
@@ -71,14 +86,14 @@ export default function GetKey() {
         >
           <div className="relative">
             {/* Glow effect */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-purple-800 rounded-2xl blur opacity-20"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-2xl blur opacity-20"></div>
 
-            <Card className="relative bg-gray-900 border-gray-800 rounded-2xl">
+            <Card className="relative bg-gradient-to-br from-gray-900 via-purple-950/50 to-gray-900 border-yellow-600/30 rounded-2xl">
               <CardContent className="p-8">
                 {/* Instructions */}
                 <div className="text-center mb-8">
                   <h2 className="text-2xl font-bold text-white mb-4">How to Get Your Key</h2>
-                  <p className="text-gray-400 mb-6">Follow these simple steps to get your access key:</p>
+                  <p className="text-purple-200 mb-6">Follow these simple steps to get your access key:</p>
                 </div>
 
                 {/* Steps */}
@@ -112,12 +127,12 @@ export default function GetKey() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                     >
-                      <div className="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">
+                      <div className="w-10 h-10 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center text-black font-bold flex-shrink-0">
                         {item.step}
                       </div>
                       <div>
                         <h3 className="text-white font-semibold mb-1">{item.title}</h3>
-                        <p className="text-gray-400 text-sm">{item.description}</p>
+                        <p className="text-purple-300 text-sm">{item.description}</p>
                       </div>
                     </motion.div>
                   ))}
@@ -127,7 +142,7 @@ export default function GetKey() {
                 <div className="text-center mb-8">
                   <Button
                     onClick={handleGetKey}
-                    className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 text-lg"
+                    className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-black font-bold py-3 px-8 text-lg"
                   >
                     <Key className="h-5 w-5 mr-2" />
                     Get Key
@@ -137,16 +152,16 @@ export default function GetKey() {
 
                 {/* Warning */}
                 <motion.div
-                  className="bg-gray-800 border border-gray-700 rounded-lg p-4"
+                  className="bg-yellow-900/20 border border-yellow-600/30 rounded-lg p-4"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.8 }}
                 >
                   <div className="flex items-start gap-3">
-                    <ExternalLink className="h-5 w-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                    <ExternalLink className="h-5 w-5 text-yellow-400 flex-shrink-0 mt-0.5" />
                     <div>
-                      <h4 className="text-white font-semibold mb-1">External Site Notice</h4>
-                      <p className="text-gray-400 text-sm">
+                      <h4 className="text-yellow-100 font-semibold mb-1">External Site Notice</h4>
+                      <p className="text-yellow-200 text-sm">
                         You will be redirected to an external site (workink.net) to complete the key generation process.
                         This is normal and required for our key system.
                       </p>
@@ -156,44 +171,60 @@ export default function GetKey() {
 
                 {/* FAQ */}
                 <div className="mt-8 space-y-4">
-                  <h3 className="text-lg font-semibold text-white text-center mb-4">Frequently Asked Questions</h3>
+                  <h3 className="text-lg font-semibold text-purple-100 text-center mb-4">Frequently Asked Questions</h3>
 
                   <div className="space-y-3">
                     <motion.div
-                      className="bg-gray-800 rounded-lg p-4"
+                      className="bg-purple-950/30 rounded-lg p-4"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ duration: 0.5, delay: 0.9 }}
                     >
-                      <h4 className="text-white font-medium mb-2">Why do I need a key?</h4>
-                      <p className="text-gray-400 text-sm">
+                      <h4 className="text-purple-100 font-medium mb-2">Why do I need a key?</h4>
+                      <p className="text-purple-300 text-sm">
                         Keys help us maintain our service and ensure only legitimate users access our premium features.
                       </p>
                     </motion.div>
 
                     <motion.div
-                      className="bg-gray-800 rounded-lg p-4"
+                      className="bg-purple-950/30 rounded-lg p-4"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ duration: 0.5, delay: 1.0 }}
                     >
-                      <h4 className="text-white font-medium mb-2">How long does a key last?</h4>
-                      <p className="text-gray-400 text-sm">
+                      <h4 className="text-purple-100 font-medium mb-2">How long does a key last?</h4>
+                      <p className="text-purple-300 text-sm">
                         Keys are typically valid for 24 hours from the time of generation.
                       </p>
                     </motion.div>
 
                     <motion.div
-                      className="bg-gray-800 rounded-lg p-4"
+                      className="bg-purple-950/30 rounded-lg p-4"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ duration: 0.5, delay: 1.1 }}
                     >
-                      <h4 className="text-white font-medium mb-2">Is it safe?</h4>
-                      <p className="text-gray-400 text-sm">
+                      <h4 className="text-purple-100 font-medium mb-2">Is it safe?</h4>
+                      <p className="text-purple-300 text-sm">
                         Yes, our key system is completely safe and does not require any personal information.
                       </p>
                     </motion.div>
+                  </div>
+                </div>
+
+                {/* Stats */}
+                <div className="mt-8 grid grid-cols-3 gap-4 text-center">
+                  <div className="bg-purple-900/20 rounded-lg p-3">
+                    <Shield className="h-6 w-6 text-green-400 mx-auto mb-2" />
+                    <div className="text-sm font-semibold text-white">Secure</div>
+                  </div>
+                  <div className="bg-purple-900/20 rounded-lg p-3">
+                    <Clock className="h-6 w-6 text-blue-400 mx-auto mb-2" />
+                    <div className="text-sm font-semibold text-white">24h Valid</div>
+                  </div>
+                  <div className="bg-purple-900/20 rounded-lg p-3">
+                    <Users className="h-6 w-6 text-purple-400 mx-auto mb-2" />
+                    <div className="text-sm font-semibold text-white">10K+ Users</div>
                   </div>
                 </div>
               </CardContent>

@@ -1,0 +1,33 @@
+import { NextResponse } from "next/server";
+import crypto from "crypto";
+import { createClient } from "@supabase/supabase-js";
+
+const supabase = createClient(
+  process.env.SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+);
+
+export async function POST(req: Request) {
+  const { token } = await req.json();
+  if (!token) return NextResponse.json({ error: "Missing token" }, { status: 400 });
+
+  // Validate with Work.ink
+  const res = await fetch(`${process.env.WORKINK_VALIDATE_URL}/${token}`);
+  if (!res.ok) {
+    return NextResponse.json({ error: "Invalid token" }, { status: 401 });
+  }
+  const data = await res.json();
+  if (!data.valid) {
+    return NextResponse.json({ error: "Token not valid" }, { status: 401 });
+  }
+
+  // Hash token before storing
+  const hash = crypto.createHmac("sha256", process.env.KEY_SALT!)
+                     .update(token)
+                     .digest("hex");
+
+  const { error } = await supabase.from("keys").insert({ key_hash: hash });
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+
+  return NextResponse.json({ success: true });
+}

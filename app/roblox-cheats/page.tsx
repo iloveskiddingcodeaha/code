@@ -1,89 +1,398 @@
 "use client"
 
-const scripts = [
-  {
-    name: "Script 1",
-    description: "This is a description of Script 1.",
-    executor: "Solara",
-    link: "https://example.com/script1",
-  },
-  {
-    name: "Script 2",
-    description: "This is a description of Script 2.",
-    executor: "Solara",
-    link: "https://example.com/script2",
-  },
-  {
-    name: "Script 3",
-    description: "This is a description of Script 3.",
-    executor: "Solara",
-    link: "https://example.com/script3",
-  },
-]
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Eye, User, Code, Shield, Zap, ArrowRight } from "lucide-react"
+import Link from "next/link"
+import { motion } from "framer-motion"
+import { useEffect, useState } from "react"
+import Image from "next/image"
 
-const executors = [
-  {
-    name: "Solara",
-    description: "This is a description of Solara.",
-    link: "https://example.com/solara",
-  },
-]
+export default function RobloxCheats() {
+  const [isLoaded, setIsLoaded] = useState(false)
 
-const ScriptCard = ({ script }) => {
+  useEffect(() => {
+    setIsLoaded(true)
+  }, [])
+
+  // Main scripts (game-specific scripts)
+  const mainScripts = [
+    {
+      id: 3,
+      title: "Fisch Script",
+      game: "Fisch Script",
+      description: "Script for fisch, really good for auto-farming and staying undetected.",
+      features: ["Auto-Fisch", "Teleport", "Dupe"],
+      slug: "FischScript",
+      thumbnail: "/placeholder.svg?height=200&width=300&text=Fisch+Script",
+      uploader: "Admin",
+    },
+    {
+      id: 4,
+      title: "Blox Fruits Auto Farm",
+      game: "Blox Fruits Script",
+      description: "Complete auto farming script for Blox Fruits with quest automation and fruit collection.",
+      features: ["Auto Farm", "Quest Bot", "Fruit Finder"],
+      slug: "blox-fruits-auto-farm",
+      thumbnail: "/placeholder.svg?height=200&width=300&text=Blox+Fruits",
+      uploader: "Admin",
+    },
+    {
+      id: 5,
+      title: "99 Nights In The Forest Script",
+      game: "99 Nights In The Forest",
+      description: "Best script that is keyless for 99 nights in the forest",
+      features: ["Auto-farm", "Auto-fuel", "Bring all"],
+      slug: "99-nights-script",
+      thumbnail: "/placeholder.svg?height=200&width=300&text=99+Nights",
+      uploader: "Admin",
+    },
+    {
+      id: 6,
+      title: "Pet Simulator X Dupe",
+      game: "Pet Simulator X Script",
+      description: "Pet duplication script for Pet Simulator X with auto-hatch and mailbox features.",
+      features: ["Pet Dupe", "Auto Hatch", "Mailbox"],
+      slug: "pet-sim-x-dupe",
+      thumbnail: "/placeholder.svg?height=200&width=300&text=Pet+Sim+X",
+      uploader: "Admin",
+    },
+  ]
+
+  // Executors (moved to "More Scripts" section)
+  const executors = [
+    {
+      id: 1,
+      title: "Solara",
+      game: "Roblox Executor",
+      description: "Powerful Roblox executor with advanced features and reliable execution.",
+      features: ["Advanced Execution", "User Friendly", "Free"],
+      slug: "Solara",
+      thumbnail: "/images/solara-logo.png",
+      uploader: "Admin",
+    },
+    {
+      id: 2,
+      title: "KRNL Executor",
+      game: "Roblox Executor",
+      description: "Free Roblox executor with good stability and Level 7 execution capabilities.",
+      features: ["Level 7", "Free", "Stable"],
+      slug: "krnl-executor",
+      thumbnail: "/placeholder.svg?height=200&width=300&text=KRNL",
+      uploader: "Admin",
+    },
+  ]
+
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 12,
+      },
+    },
+  }
+
+  const fadeInVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+      },
+    },
+  }
+
   return (
-    <div className="bg-white rounded-lg shadow-md p-4">
-      <h3 className="text-lg font-semibold">{script.name}</h3>
-      <p className="text-gray-600">{script.description}</p>
-      <p className="text-blue-500 mt-2">Executor: {script.executor}</p>
-      <a
-        href={script.link}
-        className="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
-        target="_blank"
-        rel="noopener noreferrer"
+    <div className="container mx-auto px-4 py-12 space-y-12">
+      {/* Header */}
+      <motion.div
+        className="text-center space-y-4"
+        initial="hidden"
+        animate={isLoaded ? "visible" : "hidden"}
+        variants={fadeInVariants}
       >
-        Get Script
-      </a>
-    </div>
-  )
-}
+        <motion.div
+          className="inline-flex items-center justify-center w-16 h-16 bg-purple-800 rounded-full mb-4"
+          animate={{
+            scale: [1, 1.05, 1],
+            rotate: [0, 2, -2, 0],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "easeInOut",
+          }}
+        >
+          <span className="text-white font-bold text-xl">RBX</span>
+        </motion.div>
 
-const ExecutorCard = ({ executor }) => {
-  return (
-    <div className="bg-white rounded-lg shadow-md p-4">
-      <h3 className="text-lg font-semibold">{executor.name}</h3>
-      <p className="text-gray-600">{executor.description}</p>
-      <a
-        href={executor.link}
-        className="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Download
-      </a>
-    </div>
-  )
-}
+        <motion.h1
+          className="text-3xl md:text-4xl font-bold"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+        >
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-purple-100">
+            Roblox Executors & Scripts
+          </span>
+        </motion.h1>
+        <motion.p
+          className="text-lg text-purple-200 max-w-3xl mx-auto"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+        >
+          Executors and scripts for Roblox.
+        </motion.p>
+      </motion.div>
 
-const RobloxCheatsPage = () => {
-  return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Roblox Cheats</h1>
-
-      <h2 className="text-xl font-semibold mb-2">Executors</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
-        {executors.map((executor) => (
-          <ExecutorCard key={executor.name} executor={executor} />
-        ))}
+      {/* Popular Scripts Grid (Game Scripts) */}
+      <div>
+        <motion.h2
+          className="text-2xl font-bold text-purple-100 mb-6"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Popular Scripts
+        </motion.h2>
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isLoaded ? "visible" : "hidden"}
+        >
+          {mainScripts.map((script, index) => (
+            <ScriptCard key={script.id} script={script} index={index} itemVariants={itemVariants} />
+          ))}
+        </motion.div>
       </div>
 
-      <h2 className="text-xl font-semibold mb-2">Scripts</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {scripts.map((script) => (
-          <ScriptCard key={script.name} script={script} />
-        ))}
+      {/* Executors Section (Previously "More Scripts") */}
+      <div>
+        <motion.h2
+          className="text-2xl font-bold text-purple-100 mb-6"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          Executors
+        </motion.h2>
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isLoaded ? "visible" : "hidden"}
+          transition={{ delayChildren: 0.3 }}
+        >
+          {executors.map((executor) => (
+            <ScriptCard key={executor.id} script={executor} index={0} itemVariants={itemVariants} />
+          ))}
+        </motion.div>
       </div>
+
+      {/* Script Hub Section */}
+      <motion.div
+        className="bg-gradient-to-r from-purple-900/50 to-indigo-900/50 border border-purple-800/30 rounded-2xl p-8 mt-16"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.5 }}
+      >
+        <div className="text-center mb-8">
+          <motion.div
+            className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full mb-6"
+            animate={{
+              scale: [1, 1.1, 1],
+              rotate: [0, 5, -5, 0],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "easeInOut",
+            }}
+          >
+            <Code className="h-10 w-10 text-white" />
+          </motion.div>
+
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-indigo-300">
+              Premium Script Hub
+            </span>
+          </h2>
+          <p className="text-lg text-purple-200 max-w-2xl mx-auto mb-6">
+            Access our exclusive collection of premium scripts with advanced features, HWID protection, and regular
+            updates. Over 50+ premium scripts for your favorite Roblox games.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 mb-8">
+          <motion.div
+            className="bg-black/30 border border-purple-700/50 rounded-xl p-6 text-center"
+            whileHover={{ scale: 1.05, borderColor: "rgb(147 51 234 / 0.8)" }}
+            transition={{ duration: 0.2 }}
+          >
+            <Shield className="h-12 w-12 text-purple-400 mx-auto mb-4" />
+            <h3 className="text-xl font-semibold text-purple-100 mb-2">HWID Protection</h3>
+            <p className="text-purple-300 text-sm">Secure key system tied to your hardware ID for maximum protection</p>
+          </motion.div>
+
+          <motion.div
+            className="bg-black/30 border border-purple-700/50 rounded-xl p-6 text-center"
+            whileHover={{ scale: 1.05, borderColor: "rgb(147 51 234 / 0.8)" }}
+            transition={{ duration: 0.2 }}
+          >
+            <Zap className="h-12 w-12 text-purple-400 mx-auto mb-4" />
+            <h3 className="text-xl font-semibold text-purple-100 mb-2">Premium Scripts</h3>
+            <p className="text-purple-300 text-sm">
+              Access to exclusive scripts with advanced features and regular updates
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="bg-black/30 border border-purple-700/50 rounded-xl p-6 text-center"
+            whileHover={{ scale: 1.05, borderColor: "rgb(147 51 234 / 0.8)" }}
+            transition={{ duration: 0.2 }}
+          >
+            <Code className="h-12 w-12 text-purple-400 mx-auto mb-4" />
+            <h3 className="text-xl font-semibold text-purple-100 mb-2">50+ Scripts</h3>
+            <p className="text-purple-300 text-sm">Comprehensive collection covering all popular Roblox games</p>
+          </motion.div>
+        </div>
+
+        <div className="text-center">
+          <Link href="/script-hub">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white px-8 py-3 text-lg font-semibold"
+            >
+              Browse Script Hub
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
+          <p className="text-purple-300 text-sm mt-3">Premium access required • Get your HWID key today</p>
+        </div>
+      </motion.div>
+
+      {/* Instructions Section */}
+      <motion.div
+        className="bg-[#050212] border border-purple-900/40 rounded-xl p-6"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.5 }}
+      >
+        <h3 className="text-xl font-semibold text-purple-100 mb-4">How to use scripts</h3>
+        <ol className="space-y-3 text-purple-200">
+          {[
+            "Download an executor from the Executors section (Solara, KRNL, etc.)",
+            "Run the executor as administrator",
+            "Click on any script from Popular Scripts to view details and copy the code",
+            "Inject into Roblox and paste the script code",
+          ].map((step, index) => (
+            <motion.li
+              key={index}
+              className="flex items-start"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+            >
+              <span className="bg-purple-900 w-6 h-6 rounded-full flex items-center justify-center text-sm mr-3 mt-0.5 flex-shrink-0">
+                {index + 1}
+              </span>
+              <span>{step}</span>
+            </motion.li>
+          ))}
+        </ol>
+        <motion.div
+          className="mt-4 text-purple-300 text-sm"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 1 }}
+        >
+          Need help? Join our Discord for support and script sharing.
+        </motion.div>
+      </motion.div>
     </div>
   )
 }
 
-export default RobloxCheatsPage
+function ScriptCard({
+  script,
+  index,
+  itemVariants,
+}: {
+  script: any
+  index: number
+  itemVariants: any
+}) {
+  return (
+    <motion.div variants={itemVariants} whileHover={{ y: -5, transition: { duration: 0.2 } }}>
+      <Card className="bg-[#050212] border-purple-900/40 hover:border-purple-700 transition-all duration-300 h-full overflow-hidden">
+        {/* Thumbnail */}
+        <div className="relative h-48 overflow-hidden">
+          <Image
+            src={script.thumbnail || "/placeholder.svg"}
+            alt={script.title}
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+
+          {/* Stats overlay */}
+          <div className="absolute bottom-2 left-2 flex items-center gap-3 text-white text-sm">
+            <div className="flex items-center gap-1">
+              <User className="h-3 w-3" />
+              <span>{script.uploader}</span>
+            </div>
+          </div>
+        </div>
+
+        <CardHeader className="pb-3">
+          <Badge variant="outline" className="mb-2 w-fit border-purple-800/50 text-purple-200 bg-purple-900/30">
+            {script.game}
+          </Badge>
+          <CardTitle className="text-lg text-purple-100">{script.title}</CardTitle>
+        </CardHeader>
+
+        <CardContent className="space-y-3 pb-3">
+          <p className="text-purple-200 text-sm line-clamp-2">{script.description}</p>
+          <div className="flex flex-wrap gap-1">
+            {script.features.slice(0, 3).map((feature: string, idx: number) => (
+              <Badge
+                key={idx}
+                variant="secondary"
+                className="bg-purple-900/40 text-purple-100 border-purple-900/50 text-xs"
+              >
+                {feature}
+              </Badge>
+            ))}
+          </div>
+        </CardContent>
+
+        <CardFooter className="pt-0">
+          <Link href={`/roblox-cheats/${script.slug}`} className="w-full">
+            <Button className="w-full bg-zinc-900 hover:bg-zinc-800 border border-purple-800/50 text-purple-300 hover:text-white transition-all duration-300 group">
+              <Eye className="mr-2 h-4 w-4" />
+              View Script
+            </Button>
+          </Link>
+        </CardFooter>
+      </Card>
+    </motion.div>
+  )
+}
