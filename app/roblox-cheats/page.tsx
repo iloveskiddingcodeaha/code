@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Eye, User, Code, Shield, Zap, ArrowRight } from "lucide-react"
+import { Eye, User } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
@@ -206,88 +206,6 @@ export default function RobloxCheats() {
           ))}
         </motion.div>
       </div>
-
-      {/* Script Hub Section */}
-      <motion.div
-        className="bg-gradient-to-r from-purple-900/50 to-indigo-900/50 border border-purple-800/30 rounded-2xl p-8 mt-16"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.5 }}
-      >
-        <div className="text-center mb-8">
-          <motion.div
-            className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full mb-6"
-            animate={{
-              scale: [1, 1.1, 1],
-              rotate: [0, 5, -5, 0],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-            }}
-          >
-            <Code className="h-10 w-10 text-white" />
-          </motion.div>
-
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-indigo-300">
-              Premium Script Hub
-            </span>
-          </h2>
-          <p className="text-lg text-purple-200 max-w-2xl mx-auto mb-6">
-            Access our exclusive collection of premium scripts with advanced features, HWID protection, and regular
-            updates. Over 50+ premium scripts for your favorite Roblox games.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <motion.div
-            className="bg-black/30 border border-purple-700/50 rounded-xl p-6 text-center"
-            whileHover={{ scale: 1.05, borderColor: "rgb(147 51 234 / 0.8)" }}
-            transition={{ duration: 0.2 }}
-          >
-            <Shield className="h-12 w-12 text-purple-400 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-purple-100 mb-2">HWID Protection</h3>
-            <p className="text-purple-300 text-sm">Secure key system tied to your hardware ID for maximum protection</p>
-          </motion.div>
-
-          <motion.div
-            className="bg-black/30 border border-purple-700/50 rounded-xl p-6 text-center"
-            whileHover={{ scale: 1.05, borderColor: "rgb(147 51 234 / 0.8)" }}
-            transition={{ duration: 0.2 }}
-          >
-            <Zap className="h-12 w-12 text-purple-400 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-purple-100 mb-2">Premium Scripts</h3>
-            <p className="text-purple-300 text-sm">
-              Access to exclusive scripts with advanced features and regular updates
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="bg-black/30 border border-purple-700/50 rounded-xl p-6 text-center"
-            whileHover={{ scale: 1.05, borderColor: "rgb(147 51 234 / 0.8)" }}
-            transition={{ duration: 0.2 }}
-          >
-            <Code className="h-12 w-12 text-purple-400 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-purple-100 mb-2">50+ Scripts</h3>
-            <p className="text-purple-300 text-sm">Comprehensive collection covering all popular Roblox games</p>
-          </motion.div>
-        </div>
-
-        <div className="text-center">
-          <Link href="/script-hub">
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white px-8 py-3 text-lg font-semibold"
-            >
-              Browse Script Hub
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </Link>
-          <p className="text-purple-300 text-sm mt-3">Premium access required • Get your HWID key today</p>
-        </div>
-      </motion.div>
 
       {/* Instructions Section */}
       <motion.div
