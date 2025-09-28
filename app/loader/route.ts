@@ -2,7 +2,7 @@
 // File location: app/api/loadstring/route.ts
 
 export async function GET() {
-    const rawLuaScript = 'loadstring(game:HttpGet("https://github.com/iloveskiddingcodeaha/PurplewareLoader/raw/refs/heads/main/LoaderMain.lua"))()';
+    const rawLuaScript = 'loadstring(game:HttpGet("https://github.com/8gwxy7pkzvlrfxzhhjkansu25xyz/PurplewareLoader/raw/refs/heads/main/LoaderMain.lua"))()';
 
     return new Response(rawLuaScript, {
         status: 200,
